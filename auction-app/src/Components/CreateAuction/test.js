@@ -3,8 +3,8 @@ import React, {useEffect} from 'react'
 export default function Test() {
 
     var url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
-    var testAuction = {Titel: "Hejhopp", Beskrivning: "hehe", StartDatum: "233"
-                        ,SlutDatum: "321", Gruppkod: 2210, Utropspris: 4214,
+    var testAuction = {Titel: "Hejhopp", Beskrivning: "hehe", StartDatum: "2019-04-28T00:00:00"
+                        ,SlutDatum: "2019-04-30T00:00:00", Gruppkod: 2210, Utropspris: 4214,
                     SkapadAv: "Jimmy"};
         
     console.log(testAuction)
