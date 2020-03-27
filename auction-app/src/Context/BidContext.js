@@ -8,8 +8,9 @@ const BidContextProvider = (props) => {
 
     const [bids, setBids] = useState([testdata]);
 
-    const addBid = (BudID, Summa, AuktionID, Budgivare) => {
-        setBids([...bids, {BudID, Summa, AuktionID, Budgivare}]);
+    const addBid = (Summa, AuktionID, Budgivare) => {
+        //TODO: skicka en post till apiet(repot) också
+        setBids([...bids, {Summa, AuktionID, Budgivare}]);
     }
 
     //denna metod sätter om bidden till den auktion som man är inne på
