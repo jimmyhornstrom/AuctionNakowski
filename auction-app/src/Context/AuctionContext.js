@@ -3,12 +3,12 @@ import React, {createContext, useState} from 'react';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
-    const [bids, setBids] = useState([]);
+    const [auctions, setAuctions] = useState([]);
     const addAuction = (BudID, Summa, AuktionID, Budgivare) => {
         setAuctions([...bids, {BudID, Summa, AuktionID, Budgivare}]);
     }
     return(
-        <AuctionContext.Provider value={bids, addBid}>
+        <AuctionContext.Provider value={auctions, addAuction}>
             { props.children }
         </AuctionContext.Provider>
     )
