@@ -4,8 +4,8 @@ export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
     const [auctions, setAuctions] = useState([]);
-    const addAuction = (BudID, Summa, AuktionID, Budgivare) => {
-        setAuctions([...bids, {BudID, Summa, AuktionID, Budgivare}]);
+    const addAuction = (arrayWithAuctions) => {
+        setAuctions([...bids, ...arrayWithAuctions]);
     }
     return(
         <AuctionContext.Provider value={auctions, addAuction}>
