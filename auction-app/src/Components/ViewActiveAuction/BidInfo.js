@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-export default function BidInfo() {
-
+export default function BidInfo({bid}) {
     return (
-        <React.Fragment>
-
-        </React.Fragment>
+        <li>
+            <h4>{bid.Budgivare}</h4> <p>{"Budar " + bid.Summa + ":-"}</p>
+        </li>
     )
 }
