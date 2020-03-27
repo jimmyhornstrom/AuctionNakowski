@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import CreateAuctionForm from './CreateAuctionForm'
 
 export default function Test() {
 
@@ -8,6 +9,8 @@ export default function Test() {
                     SkapadAv: "Jimmy"};
         
     console.log(testAuction)
+
+    
                     
     fetch(url,{
         method: 'POST',
@@ -18,11 +21,17 @@ export default function Test() {
         }
         }).then(function (data) {
         console.log('Request success: ', 'posten skapad');
-       })
-        
+       });
+
+    function postAuction(){
+
+    }
+
+       
 
     return (
         <div>
+            <CreateAuctionForm save={postAuction} />
             <p>hej</p>
         </div>
     )
