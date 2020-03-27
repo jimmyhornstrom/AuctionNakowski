@@ -3,7 +3,17 @@ import React, {createContext, useState} from 'react';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
-    const [auctions, setAuctions] = useState([]);
+    const testData = {
+        "AuktionID": 4604,
+        "Titel": "Hejhopp",
+        "Beskrivning": "hehe",
+        "StartDatum": "2019-04-28T00:00:00",
+        "SlutDatum": "2019-04-30T00:00:00",
+        "Gruppkod": 2210,
+        "Utropspris": 4214,
+        "SkapadAv": "Jimmy"}
+
+    const [auctions, setAuctions] = useState([testData]);
 
     const addAuction = (arrayWithAuctions) => {
         setAuctions([...auctions, ...arrayWithAuctions]);

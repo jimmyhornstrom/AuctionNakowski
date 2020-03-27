@@ -4,10 +4,10 @@ import GetBidData from '../Repositorys/BidAPIRepository';
 export const BidContext = createContext();
 
 const BidContextProvider = (props) => {
-    const testdata = {BudID: 1, Summa: 10, AuktionID: 4604, Budgivare: "nolife"};
+    const testdata = {BudID: 1, Summa: 10000, AuktionID: 4604, Budgivare: "nolife"};
 
     const [bids, setBids] = useState([testdata]);
-    
+
     const addBid = (BudID, Summa, AuktionID, Budgivare) => {
         setBids([...bids, {BudID, Summa, AuktionID, Budgivare}]);
     }
