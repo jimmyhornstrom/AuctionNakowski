@@ -17,16 +17,19 @@ const AuctionContextProvider = (props) => {
 
     const [auctions, setAuctions] = useState([]);
 
-    const addAuction = (auction) => {
+    const addAuctions = (auctionArray) => {
 
         // let oldarr = auctions;
         // oldarr.push(auction);
         // setAuctions(oldarr);
 
-        setAuctions([...auctions, ...auction]);
+        setAuctions([...auctions, ...auctionArray]);
 
         // let newauctionarr = [...auctions, {AuktionID: auction.AuktionID, Titel: auction.Titel, Beskrivning: auction.Beskrivning, StartDatum: auction.StartDatum, SlutDatum: auction.SlutDatum, Gruppkod: auction.Gruppkod, Utropspris: auction.Utropspris, SkapadAv: auction.SkapadAv}];
         // setAuctions(newauctionarr);
+    }
+    const addOneAuction = (singleAuction) => {
+        setAuctions([...auctions, singleAuction]);
     }
     const removeAuction = (id) => {
         //tar bara bort i context just nu, behöver ta bort i db också
@@ -37,7 +40,7 @@ const AuctionContextProvider = (props) => {
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            addAuction(data);
+            addAuctions(data);
             // for (var auction of data)
             // {
             //     addAuction(auction);
@@ -60,13 +63,13 @@ const AuctionContextProvider = (props) => {
                     'Content-Type': 'application/json'
                     }
                     }).then(function (data) {
-                    addAuction(auction)
+                    addOneAuction(auction)
                    });
     }
 
 
     return(
-        <AuctionContext.Provider value={{auctions, addAuction, removeAuction, postAuction}}>
+        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction}}>
             { props.children }
         </AuctionContext.Provider>
     )
