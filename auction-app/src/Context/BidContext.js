@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import GetBidData from '../Repositorys/BidAPIRepository';
+import {GetBidData} from '../Repositorys/BidAPIRepository';
 
 export const BidContext = createContext();
 
