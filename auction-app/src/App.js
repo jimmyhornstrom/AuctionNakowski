@@ -4,17 +4,19 @@ import Test from './Components/CreateAuction/test'
 import BidContextProvider from './Context/BidContext';
 import ActiveAuction from './Components/ViewActiveAuction/ActiveAuction';
 import AuctionContextProvider from './Context/AuctionContext';
-import StartView from './Components/StartView/StartView'
+// import StartView from './Components/StartView/StartView'
 
 
 function App() {
   
   return (
     
+    
     <AuctionContextProvider>
       <BidContextProvider>
       <div>
-     <StartView/>
+     {/* <StartView/> */}
+     <Test />
      </div>
           <ActiveAuction />
       </BidContextProvider>
