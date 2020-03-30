@@ -20,7 +20,6 @@ function App() {
         <Main/>
           {/* <Test /> */}
       <div>
-     <StartView/>
      <Test />
      </div>
           <ActiveAuction />
