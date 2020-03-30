@@ -1,15 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Test from './Components/CreateAuction/test'
 import BidContextProvider from './Context/BidContext';
+import StartView from './Components/StartView/StartView'
 
 function App() {
 
   
   return (
     <BidContextProvider>
-    <div></div>
+    <div>
+     <StartView/>
+    </div>
     {/* <Test /> */}
     </BidContextProvider>
   );
