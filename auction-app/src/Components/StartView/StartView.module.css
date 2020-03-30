@@ -1,0 +1,22 @@
+.title {
+    position: absolute;
+    top: -10px;
+    color: #365a7a;
+    font-size: 4rem;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .search {
+    width: '600px';
+    display: 'inline-block';
+    padding: '10px 0px 10px 30px';
+    position: 'relative';
+    outline: 'none';
+    font-size: '20px';
+    transition: 'all 0.5s ease-out';
+  }
+  
+  
