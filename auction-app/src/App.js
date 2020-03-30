@@ -14,6 +14,9 @@ function App() {
     
     <AuctionContextProvider>
       <BidContextProvider>
+        <Navbar/>
+        <Main/>
+          {/* <Test /> */}
       <div>
      <StartView/>
      <Test />
