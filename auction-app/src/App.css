@@ -61,5 +61,5 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-image: linear-gradient(to top,  #a6c1ee 0%,#fbc2eb 100%);
 }

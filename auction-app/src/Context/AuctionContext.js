@@ -67,9 +67,27 @@ const AuctionContextProvider = (props) => {
                    });
     }
 
+    const updateAuction = (auction) =>{
+        //in progress 
+        //ta ner alla utom den ändrade, lägg till den uppdaterade till de befintliga
+        let otherAuctions = auctions.filter((a) => {
+            return auction.AuktionID !== a.id;
+        });
+        console.log(otherAuctions);
+        // setAuctions(...otherAuctions, auction);
+
+    //     fetch('http://example.com/api/xxxxxxxxxxxxxxxx' + id, {
+    //     method: 'POST',
+    //     body: auction
+    // }).then(response => response.json())
+        
+        // + lägg till uppdatering av api(inte bara state). postAuction?
+        // hur gör man med "gamla" originalet om 
+    }
+
 
     return(
-        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction}}>
+        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction}}>
             { props.children }
         </AuctionContext.Provider>
     )
