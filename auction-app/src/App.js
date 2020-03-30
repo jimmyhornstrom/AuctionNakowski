@@ -5,6 +5,8 @@ import BidContextProvider from './Context/BidContext';
 import ActiveAuction from './Components/ViewActiveAuction/ActiveAuction';
 import AuctionContextProvider from './Context/AuctionContext';
 import StartView from './Components/StartView/StartView'
+import Main from './Components/Main';
+import Navbar from './Components/Navbar';
 
 
 function App() {
