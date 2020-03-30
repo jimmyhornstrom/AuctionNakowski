@@ -18,7 +18,12 @@ const AuctionContextProvider = (props) => {
     const [auctions, setAuctions] = useState([]);
 
     const addAuction = (auction) => {
-        setAuctions([...auctions, {auction}]);
+
+        let oldarr = auctions;
+        oldarr.push(auction);
+        setAuctions(oldarr);
+        // let newauctionarr = [...auctions, {AuktionID: auction.AuktionID, Titel: auction.Titel, Beskrivning: auction.Beskrivning, StartDatum: auction.StartDatum, SlutDatum: auction.SlutDatum, Gruppkod: auction.Gruppkod, Utropspris: auction.Utropspris, SkapadAv: auction.SkapadAv}];
+        // setAuctions(newauctionarr);
     }
     const removeAuction = (id) => {
         //tar bara bort i context just nu, behöver ta bort i db också
@@ -31,15 +36,15 @@ const AuctionContextProvider = (props) => {
         .then(data => {
             for (var auction of data)
             {
-                addAuction(auction)
+                addAuction(auction);
             }
         })
 
     }
 
     useEffect(() => {
-        fetchAuctions()
-    })
+        fetchAuctions();
+    },[])
 
     const postAuction = (auction) => {
 
@@ -51,7 +56,7 @@ const AuctionContextProvider = (props) => {
                     'Content-Type': 'application/json'
                     }
                     }).then(function (data) {
-                    //addAuction(auction)
+                    addAuction(auction)
                    });
     }
 
