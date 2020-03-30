@@ -69,13 +69,12 @@ const AuctionContextProvider = (props) => {
 
     const updateAuction = (auction) =>{
         //in progress 
-        //ta ner alla utom den ändrade, lägg till den uppdaterade till de befintliga
         let otherAuctions = auctions.filter((a) => {
             return auction.AuktionID !== a.id;
         });
-        console.log(otherAuctions);
-        // setAuctions(...otherAuctions, auction);
-
+        setAuctions(...otherAuctions, auction);
+        
+        console.log(auctions);
     //     fetch('http://example.com/api/xxxxxxxxxxxxxxxx' + id, {
     //     method: 'POST',
     //     body: auction
