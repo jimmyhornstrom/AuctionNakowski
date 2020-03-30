@@ -19,9 +19,12 @@ const AuctionContextProvider = (props) => {
 
     const addAuction = (auction) => {
 
-        let oldarr = auctions;
-        oldarr.push(auction);
-        setAuctions(oldarr);
+        // let oldarr = auctions;
+        // oldarr.push(auction);
+        // setAuctions(oldarr);
+
+        setAuctions([...auctions, auction]);
+
         // let newauctionarr = [...auctions, {AuktionID: auction.AuktionID, Titel: auction.Titel, Beskrivning: auction.Beskrivning, StartDatum: auction.StartDatum, SlutDatum: auction.SlutDatum, Gruppkod: auction.Gruppkod, Utropspris: auction.Utropspris, SkapadAv: auction.SkapadAv}];
         // setAuctions(newauctionarr);
     }
@@ -34,10 +37,11 @@ const AuctionContextProvider = (props) => {
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            for (var auction of data)
-            {
-                addAuction(auction);
-            }
+            addAuction(data);
+            // for (var auction of data)
+            // {
+            //     addAuction(auction);
+            // }
         })
 
     }
