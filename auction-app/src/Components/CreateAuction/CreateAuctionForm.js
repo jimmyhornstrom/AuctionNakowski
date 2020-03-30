@@ -35,9 +35,9 @@ export default function CreateAuctionForm(props) {
                 onChange={(e) => setTitel(e.target.value)} required/>
                 <input type="text" placeholder="Beskrivning" value={beskrivning}
                 onChange={(e) => setBeskrivning(e.target.value)} required/>
-                <input type="date" placeholder="Startdatum" value={startdatum}
+                <input type="datetime-local" placeholder="Startdatum" value={startdatum}
                 onChange={(e) => setStartdatum(e.target.value)} required/>
-                <input type="date" placeholder="Slutdatum" value={slutdatum}
+                <input type="datetime-local" placeholder="Slutdatum" value={slutdatum}
                 onChange={(e) => setSlutdatum(e.target.value)} required />
                 <input type="number" placeholder="Gruppkod" value={gruppkod}
                 onChange={(e) => setGruppkod(e.target.value)} required/>
