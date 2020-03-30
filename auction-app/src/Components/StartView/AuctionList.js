@@ -6,9 +6,11 @@ import { AuctionContext } from '../../Context/AuctionContext';
 
 const AuctionList = () =>{
 
-let[aucitonId, setAuctionId ] = useState();
+let[auctionId, setAuctionId ] = useState();
 let[error, setError] = useState(false);
 const {auctions} = useContext(AuctionContext)
+
+console.log(auctions);
 
 function getList(e){
 
@@ -19,6 +21,8 @@ return(
 
     <div>
         <p>{JSON.stringify(auctions)}hej hej</p>
+        
+       
     </div>
 )
 
