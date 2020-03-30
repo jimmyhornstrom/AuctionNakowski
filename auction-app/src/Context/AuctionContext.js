@@ -23,7 +23,7 @@ const AuctionContextProvider = (props) => {
         // oldarr.push(auction);
         // setAuctions(oldarr);
 
-        setAuctions([...auctions, auction]);
+        setAuctions([...auctions, ...auction]);
 
         // let newauctionarr = [...auctions, {AuktionID: auction.AuktionID, Titel: auction.Titel, Beskrivning: auction.Beskrivning, StartDatum: auction.StartDatum, SlutDatum: auction.SlutDatum, Gruppkod: auction.Gruppkod, Utropspris: auction.Utropspris, SkapadAv: auction.SkapadAv}];
         // setAuctions(newauctionarr);
