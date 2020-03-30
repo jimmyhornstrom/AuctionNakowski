@@ -18,7 +18,7 @@ function getList(e){
 return(
 
     <div>
-        <p>hej hej</p>
+        <p>{JSON.stringify(auctions)}hej hej</p>
     </div>
 )
 
