@@ -1,10 +1,11 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { BidContext } from '../../Context/BidContext';
+import { AuctionContext } from '../../Context/AuctionContext';
 
 export default function MakeBidForm({highestBet, auctionID}) {
 
     
-
+    const {auctions} = useContext(AuctionContext);
     const {addBid} = useContext(BidContext);
 
     const [newBid, setNewBid] = useState(highestBet + 1);
@@ -13,6 +14,7 @@ export default function MakeBidForm({highestBet, auctionID}) {
     const SubmitNewBid = (e) => {
         e.preventDefault();
         console.log("budet är taget som " + newBid + ":- från " + bidder);
+        console.log(auctions);
     }
 
     return (
