@@ -28,4 +28,4 @@ const AddBidData = (bid) => {
     //    })
 }
 
-export default GetBidData;
+export {GetBidData, AddBidData};
