@@ -25,11 +25,28 @@ export default function ActiveAuction() {//{auction}
     const start = new Date(auction.StartDatum);
     const slut = new Date(auction.SlutDatum);
     const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
-    return (
+
+    return slut < new Date() || start > new Date() ? (
+        <React.Fragment>
+            <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
+           
+            <p>stängd</p>
+        </React.Fragment>
+    ) : (
         <React.Fragment>
             <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
             <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
             <BidList auctionID={auction.AuktionID} />
         </React.Fragment>
     )
+
+
+
+    // return (
+    //     <React.Fragment>
+    //         <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
+    //         <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
+    //         <BidList auctionID={auction.AuktionID} />
+    //     </React.Fragment>
+    // )
 }
