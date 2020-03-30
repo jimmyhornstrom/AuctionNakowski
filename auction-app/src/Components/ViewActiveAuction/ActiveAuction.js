@@ -31,7 +31,7 @@ export default function ActiveAuction() {//{auction}
     return slut < new Date() || start > new Date() ? (
         <React.Fragment>
             <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-            <BidInfo bid={highestBid} />
+            {/* <BidInfo bid={highestBid} /> */}
         </React.Fragment>
     ) : (
         <React.Fragment>
