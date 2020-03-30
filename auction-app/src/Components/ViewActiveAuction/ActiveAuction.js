@@ -21,9 +21,13 @@ export default function ActiveAuction() {//{auction}
 
     const {bids} = useContext(BidContext);
     const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
+    //const status = dates.compare(auction.SlutDatum, new Date()) === -1 || dates.compare(auction.StartDatum  , new Date()) === 1 ? ("Auktionen är stängd") : ("Auktionen är öppen");
+    const start = new Date(auction.StartDatum);
+    const slut = new Date(auction.SlutDatum);
+    const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
     return (
         <React.Fragment>
-            <AuctionInfo auction={auction} price={accuratePrice}/>
+            <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
             <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
             <BidList auctionID={auction.AuktionID} />
         </React.Fragment>
