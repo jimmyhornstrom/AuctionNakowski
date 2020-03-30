@@ -4,6 +4,8 @@ import Test from './Components/CreateAuction/test'
 import BidContextProvider from './Context/BidContext';
 import ActiveAuction from './Components/ViewActiveAuction/ActiveAuction';
 import AuctionContextProvider from './Context/AuctionContext';
+import Main from './Components/Main';
+import Navbar from './Components/Navbar';
 // import StartView from './Components/StartView/StartView'
 
 
@@ -14,6 +16,9 @@ function App() {
     
     <AuctionContextProvider>
       <BidContextProvider>
+        <Navbar/>
+        <Main/>
+          {/* <Test /> */}
       <div>
      {/* <StartView/> */}
      <Test />
