@@ -7,9 +7,9 @@ import Arcive from './ViewOldAuction/OldAuction';
 const Main = () => {
 
     return(<Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/arkiv" component={Arcive}/>
-        <Route path="/skapa" component={Create}/>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/arkiv" component={Arcive}></Route>
+        <Route path="/skapa" component={Create}></Route>
     </Switch>)
 }
 export default Main;
