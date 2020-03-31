@@ -3,30 +3,20 @@ import {fetchAllAuctions} from '../Repositorys/AuctionAPIRepository';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
-    // const testData = {
-    //     "AuktionID": 4604,
-    //     "Titel": "Hejhopp",
-    //     "Beskrivning": "hehe",
-    //     "StartDatum": "2019-04-28T00:00:00",
-    //     "SlutDatum": "2019-04-30T00:00:00",
-    //     "Gruppkod": 2210,
-    //     "Utropspris": 4214,
-    //     "SkapadAv": "Jimmy"}
+    
 
     const url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
 
     const [auctions, setAuctions] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
+
+    const addAuctionsToSearchResult = (auctionArray) => {
+        setSearchResult([...searchResult, ...auctionArray])
+    }
 
     const addAuctions = (auctionArray) => {
 
-        // let oldarr = auctions;
-        // oldarr.push(auction);
-        // setAuctions(oldarr);
-
         setAuctions([...auctions, ...auctionArray]);
-
-        // let newauctionarr = [...auctions, {AuktionID: auction.AuktionID, Titel: auction.Titel, Beskrivning: auction.Beskrivning, StartDatum: auction.StartDatum, SlutDatum: auction.SlutDatum, Gruppkod: auction.Gruppkod, Utropspris: auction.Utropspris, SkapadAv: auction.SkapadAv}];
-        // setAuctions(newauctionarr);
     }
     const addOneAuction = (singleAuction) => {
         setAuctions([...auctions, singleAuction]);
@@ -41,10 +31,6 @@ const AuctionContextProvider = (props) => {
         .then(res => res.json())
         .then(data => {
             addAuctions(data);
-            // for (var auction of data)
-            // {
-            //     addAuction(auction);
-            // }
         })
 
     }
@@ -111,7 +97,7 @@ const AuctionContextProvider = (props) => {
 
 
     return(
-        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction}}>
+        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult}}>
             { props.children }
         </AuctionContext.Provider>
     )

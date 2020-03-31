@@ -9,6 +9,9 @@ let[error, setError] = useState(false);
 
 const[sortedAuctions, setSortedAuctions] = useState([]);
 
+//metod från context som tar emot en array och sparar i state
+//const {addAuctionsToSearchResult} = useContext(AuctionContext);
+
 const handleChange = val => {
     setSearchInput(val);
     console.log("value", val);}
@@ -18,9 +21,12 @@ const {auctions} = useContext(AuctionContext);
 const search = () => {
 
   const results = auctions.filter(item =>
-  item.Titel.toLowerCase().includes(searchInput));
+  item.Titel.toLowerCase().includes(searchInput));  
   setSortedAuctions(results);
   console.log(sortedAuctions);
+
+  //lägger in resultat i context state (inte testat men det är iaf principen)
+  //addAuctionsToSearchResult(results);
   
   }
 
