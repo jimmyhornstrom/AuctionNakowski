@@ -14,11 +14,11 @@ export default function ActiveAuction() {//{auction}
         "Titel": "Papegojja",
         "Beskrivning": "En knäpp papegojja som säger 'impo no baka' som betyder inkopetens idiot på japanska.. Grannarna har börjat klaga på att han sjunger sydafrikas nationalsång klockan 5 på morgonen.. Han gillar fisk men bara om de är lila. Ge han inte kaffe för då äter han upp dina kakor i frysen. ehnm... sa jag att han kan prata?",
         "StartDatum": "2019-04-28",
-        "SlutDatum": "2019-04-30",
+        "SlutDatum": "2020-04-30",
         "Gruppkod": 2210,
         "Utropspris": 500,
         "SkapadAv": "Arrr"}
-    //
+    //let currentAuction = auctions.find(auction => auction.AuktionID === id);
 
     const {bids} = useContext(BidContext);
     const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
@@ -32,7 +32,7 @@ export default function ActiveAuction() {//{auction}
     return slut < new Date() || start > new Date() ? (
         <React.Fragment>
             <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-            <BidInfo bid={highestBid} />
+            {bids.length > 0 ? (<BidInfo bid={highestBid} />) : ("inga bud")}
         </React.Fragment>
     ) : (
         <React.Fragment>
