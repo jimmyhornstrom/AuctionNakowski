@@ -7,7 +7,7 @@ import EmptyAuctionOption from './EmptyAuctionOption';
 export default function BidList({auctionID}) {
 
     const {bids} = useContext(BidContext);
-
+    bids.sort(function(a, b){return  b.Summa-a.Summa });
     return bids.length > 0 ? (
     <React.Fragment>
         <ul>

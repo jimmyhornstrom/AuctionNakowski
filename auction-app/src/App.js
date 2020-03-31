@@ -22,13 +22,9 @@ function App() {
       <BidContextProvider>
         <Navbar/>
         <Main/>
-          {/* <Test /> */}
-      <div>
-     {/* <StartView/> */}
-     {/* <Test /> */}
-     <CreateAuctionForm />
-     </div>
-          <ActiveAuction />
+        {/* <StartView/> */}
+        <CreateAuctionForm />
+        <ActiveAuction />
       </BidContextProvider>
     </AuctionContextProvider>
   );
