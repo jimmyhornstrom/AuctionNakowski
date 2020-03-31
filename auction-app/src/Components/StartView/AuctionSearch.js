@@ -9,7 +9,7 @@ let[error, setError] = useState(false);
 
 const[sortedAuctions, setSortedAuctions] = useState([]);
 
-//metod från context som tar emot en array och sparar i state
+//metod från context som tar emot en array och sparar i state (ist för ovanstående state)
 //const {addAuctionsToSearchResult} = useContext(AuctionContext);
 
 const handleChange = val => {
