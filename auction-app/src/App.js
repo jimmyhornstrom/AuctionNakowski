@@ -6,7 +6,7 @@ import ActiveAuction from './Components/ViewActiveAuction/ActiveAuction';
 import AuctionContextProvider from './Context/AuctionContext';
 import CreateAuctionForm from './Components/CreateAuction/CreateAuctionForm';
 // import StartView from './Components/StartView/StartView'
-import StartView from './Components/StartView/StartView'
+//import StartView from './Components/StartView/StartView'
 import Main from './Components/Main';
 import Navbar from './Components/Navbar';
 

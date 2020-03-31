@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
-
+import {fetchAllAuctions} from '../Repositorys/AuctionAPIRepository';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
@@ -51,6 +51,7 @@ const AuctionContextProvider = (props) => {
 
     useEffect(() => {
         fetchAuctions();
+        // console.log(fetchAllAuctions()); tom array........
     },[])
 
     const postAuction = (auction) => {
