@@ -23,7 +23,7 @@ function App() {
         <Navbar/>
         <Main/>
         {/* <StartView/> */}
-        <CreateAuctionForm />
+        {/* <CreateAuctionForm /> */}
         <ActiveAuction />
       </BidContextProvider>
     </AuctionContextProvider>
