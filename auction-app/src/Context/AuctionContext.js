@@ -76,13 +76,20 @@ const AuctionContextProvider = (props) => {
         setAuctions(...otherAuctions, auction);
         
         console.log(auctions);
-    //     fetch('http://example.com/api/xxxxxxxxxxxxxxxx' + id, {
-    //     method: 'POST',
-    //     body: auction
-    // }).then(response => response.json())
         
-        // + lägg till uppdatering av api(inte bara state). postAuction?
-        // hur gör man med "gamla" originalet om 
+        fetch(url,{
+            method: 'PUT',
+            body: JSON.stringify(auction),
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        });
+                //     fetch('http://example.com/api/xxxxxxxxxxxxxxxx' + id, {
+                //     method: 'POST',
+                //     body: auction
+                // }).then(response => response.json())
+              
     }
 
 
