@@ -1,13 +1,15 @@
 
-const fetchAllAuctions = () =>{
-    let auctions = []
+async function fetchAllAuctions(){
+    let auctions = [];
     let url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
-    fetch(url)
+    await fetch(url)
     .then(res => res.json())
     .then(data => {
         auctions = data;
+        //return auctions;
     })
     return auctions;
+    
 
 }
 
