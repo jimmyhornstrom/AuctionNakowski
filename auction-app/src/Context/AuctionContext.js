@@ -37,7 +37,7 @@ const AuctionContextProvider = (props) => {
     }
 
     const fetchAuctions = () => {
-        fetch(url)
+         fetch(url)
         .then(res => res.json())
         .then(data => {
             addAuctions(data);

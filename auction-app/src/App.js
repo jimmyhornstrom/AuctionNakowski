@@ -9,6 +9,7 @@ import CreateAuctionForm from './Components/CreateAuction/CreateAuctionForm';
 //import StartView from './Components/StartView/StartView'
 import Main from './Components/Main';
 import Navbar from './Components/Navbar';
+import UpdateForm from './Components/UpdateAction/UpdateForm';
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Navbar/>
         <Main/>
         {/* <StartView/> */}
+        <UpdateForm id={4604} />
         {/* <CreateAuctionForm /> */}
         <ActiveAuction />
       </BidContextProvider>
