@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { AuctionContext } from '../../Context/AuctionContext';
+import './createForm.css';
 
 export default function CreateAuctionForm(props) {
 
@@ -25,27 +26,54 @@ export default function CreateAuctionForm(props) {
     const handleSubmit= (e) => {
         e.preventDefault();
         postAuction(auction);
+        setTitel('');
+        setBeskrivning('');
+        setStartdatum(new Date());
+        setSlutdatum(new Date());
+        setUtropsris(0);
+        setSkapadAv('');
 
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <label>Titel</label>
+                <br />
                 <input type="text" placeholder="Titel" value={titel} 
                 onChange={(e) => setTitel(e.target.value)} required/>
-                <input type="text" placeholder="Beskrivning" value={beskrivning}
+                <br />
+                <label>Beskrivning</label>
+                <br />                
+                <textarea rows="10" cols="61" placeholder="Beskrivning" value={beskrivning}
                 onChange={(e) => setBeskrivning(e.target.value)} required/>
+                <br />
+                <label>Startdatum för auktionen</label>
+                <br />
                 <input type="datetime-local" placeholder="Startdatum" value={startdatum}
                 onChange={(e) => setStartdatum(e.target.value)} required/>
+                <br />
+                <label>Slutdatum för auktionen</label>
+                <br />
                 <input type="datetime-local" placeholder="Slutdatum" value={slutdatum}
                 onChange={(e) => setSlutdatum(e.target.value)} required />
-                <input type="number" placeholder="Gruppkod" value={gruppkod}
-                onChange={(e) => setGruppkod(e.target.value)} required/>
+                <br />
+                <label>Utropspris</label>
+                <br />
                 <input type="number" placeholder="Utropspris" value={utropspris}
                 onChange={(e) => setUtropsris(e.target.value)} required/>
+                <br />
+                <label>Skapare av auktionen</label>
+                <br />
                 <input type="text" placeholder="Skapad av" value={skapadAv}
                 onChange={(e) => setSkapadAv(e.target.value)} required/>
-                <input type="submit" value="Lägg till auktion"/>
+                <br />
+                <label>Gruppkod</label>
+                <br />
+                <input type="number" placeholder="Gruppkod" value={2210}
+                onChange={(e) => setGruppkod(e.target.value)} required/>
+                <br />
+                <input type="submit" value="Lägg ut ny auktion"/>
 
             </form>
         </div>
