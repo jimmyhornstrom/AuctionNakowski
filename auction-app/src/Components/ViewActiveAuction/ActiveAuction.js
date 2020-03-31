@@ -22,16 +22,17 @@ export default function ActiveAuction() {//{auction}
 
     const {bids} = useContext(BidContext);
     const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
-    //const status = dates.compare(auction.SlutDatum, new Date()) === -1 || dates.compare(auction.StartDatum  , new Date()) === 1 ? ("Auktionen är stängd") : ("Auktionen är öppen");
     const start = new Date(auction.StartDatum);
     const slut = new Date(auction.SlutDatum);
     const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
-    let highestBid;
 
+    let newbids = [...bids];
+    newbids.sort(function(a, b){return  b.Summa-a.Summa });
+    let highestBid = newbids[0];
     return slut < new Date() || start > new Date() ? (
         <React.Fragment>
             <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-            {/* <BidInfo bid={highestBid} /> */}
+            <BidInfo bid={highestBid} />
         </React.Fragment>
     ) : (
         <React.Fragment>
@@ -40,14 +41,4 @@ export default function ActiveAuction() {//{auction}
             <BidList auctionID={auction.AuktionID} />
         </React.Fragment>
     )
-
-
-
-    // return (
-    //     <React.Fragment>
-    //         <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-    //         <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
-    //         <BidList auctionID={auction.AuktionID} />
-    //     </React.Fragment>
-    // )
 }
