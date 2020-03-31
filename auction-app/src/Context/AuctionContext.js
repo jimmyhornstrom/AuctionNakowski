@@ -51,7 +51,9 @@ const AuctionContextProvider = (props) => {
 
     useEffect(() => {
         fetchAuctions();
-        // console.log(fetchAllAuctions()); tom array........
+        let auctionTest = fetchAllAuctions();
+        //addAuctions(auctionTest);
+        console.log(auctionTest); //returnerar nu promise
     },[])
 
     const postAuction = (auction) => {
@@ -63,7 +65,7 @@ const AuctionContextProvider = (props) => {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                     }
-                    }).then(function (data) {
+                    }).then(()  => {
                     addOneAuction(auction)
                    });
     }
@@ -92,9 +94,24 @@ const AuctionContextProvider = (props) => {
               
     }
 
+    const deleteAuction = (auction) => {
+
+        fetch(url,{
+            method: 'DELETE',
+            body: JSON.stringify(auction),
+            headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+            }
+            }).then(() => {
+            removeAuction(auction.AuktionID)
+           });
+
+    }
+
 
     return(
-        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction}}>
+        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction}}>
             { props.children }
         </AuctionContext.Provider>
     )
