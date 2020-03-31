@@ -1,21 +1,41 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import classes from "./StartView.module.css";
+import { AuctionContext } from '../../Context/AuctionContext';
 
 const AuctionSearch = () =>{
 
-let[auctionTitle, setAuctionTitle ] = useState();
+let[searchInput, setSearchInput] = useState("");
 let[error, setError] = useState(false);
 
+const[sortedAuctions, setSortedAuctions] = useState([]);
 
-function getAuction(e){
+const handleChange = val => {
+    setSearchInput(val);
+    console.log("value", val);}
+    
+const {auctions} = useContext(AuctionContext);
 
-}   
+const search = () => {
+
+  const results = auctions.filter(item =>
+  item.Titel.toLowerCase().includes(searchInput));
+  setSortedAuctions(results);
+  console.log(sortedAuctions);
+  
+  }
 
 return(
 
     <div>
-        <input className={classes.search} type='text' placeholder='Sök...'/>
-        <button className ={classes.button} onClick={() => setAuctionTitle(auctionTitle)}>Sök</button>
+    <label>Sök</label>
+      <input
+        type="text"
+        value={searchInput}
+        onChange={e => handleChange(e.target.value)}
+      />
+        <button className ={classes.button} onClick={() => search()}>Sök</button>
+
+      
     </div>
 )
 
