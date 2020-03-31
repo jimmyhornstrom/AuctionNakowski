@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './App.css';
 // import Test from './Components/CreateAuction/test'
 import BidContextProvider from './Context/BidContext';
@@ -14,7 +14,7 @@ import Navbar from './Components/Navbar';
 
 
 function App() {
-  
+
   return (
     
     

@@ -8,16 +8,19 @@ const BidContextProvider = (props) => {
     const [bids, setBids] = useState([]);//...testdata
 
     const addBid = (newBid) => {
-        //TODO: skicka en post till apiet(repot) också
         AddBidData(newBid);
         setBids([...bids, newBid]);
     }
 
     //denna metod sätter om bidden till den auktion som man är inne på
+    //ska sättas när man klickar på knapp in till auktionsvyn
     const setBidForAuction = (auctionID) => {
-        let newBids = [];
-        newBids = GetBidData(auctionID);
-        setBids([...newBids]);
+        (async() => {
+            let newBids = [];
+            setBids(newBids);
+            newBids = await GetBidData(auctionID);
+            setBids([...newBids]);
+        })();
     }
     return(
         <BidContext.Provider value={{bids, addBid, setBidForAuction}}>

@@ -1,13 +1,14 @@
 
 //hämtar bud för en specifik auktion
-const GetBidData = (auctionid) => {
+async function GetBidData(auctionid){
     let url = "http://nackowskis.azurewebsites.net/api/Bud/2210/" + auctionid;
-     let bids = [];
-    fetch(url).then(res => res.json()).then(function (data) {
-           
-            bids= data;
-            
-       });return bids;
+    let bids = [];
+    await fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        bids = data;
+    });
+    return bids;
 }
 
 const AddBidData = (bid) => {

@@ -19,8 +19,20 @@ export default function ActiveAuction() {//{auction}
         "Utropspris": 500,
         "SkapadAv": "Arrr"}
     //let currentAuction = auctions.find(auction => auction.AuktionID === id);
+    
+    
+    const {bids, setBidForAuction} = useContext(BidContext);
 
-    const {bids} = useContext(BidContext);
+
+          //för att testa budens context, kan tas bort senare när vi byggt ihop programmet (nedåt)
+            const testbid = () => {
+                setBidForAuction(4604);
+            }
+            //(uppåt)
+
+
+
+
     const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
     const start = new Date(auction.StartDatum);
     const slut = new Date(auction.SlutDatum);
@@ -36,9 +48,12 @@ export default function ActiveAuction() {//{auction}
         </React.Fragment>
     ) : (
         <React.Fragment>
+            
             <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
             <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
             <BidList auctionID={auction.AuktionID} />
+            
+            <button onClick={testbid}>testa att dra in buden från api, för test</button>
         </React.Fragment>
     )
 }
