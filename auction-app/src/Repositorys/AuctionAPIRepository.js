@@ -1,16 +1,18 @@
 
-const fetchAuctions = () => {
-    const url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
+const fetchAllAuctions = () =>{
+    let auctions = []
+    let url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
     fetch(url)
     .then(res => res.json())
-    .then(auctions => {
-        return auctions;
+    .then(data => {
+        auctions = data;
     })
+    return auctions;
 
 }
 
 const postAuction = (auction) => {
-    const url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
+    let url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
 
     fetch(url,{
                 method: 'POST',
@@ -23,4 +25,4 @@ const postAuction = (auction) => {
 }
 
 
-export {fetchAuctions, postAuction};
+export {fetchAllAuctions, postAuction};

@@ -6,17 +6,17 @@ export default function MakeBidForm({highestBet, auctionID}) {
 
     
     const {auctions} = useContext(AuctionContext);
-    const {addBid} = useContext(BidContext);
+    const {addBid, bids} = useContext(BidContext);
 
     const [newBid, setNewBid] = useState(highestBet + 1);
     const [bidder, setBidder] = useState('');
 
     const SubmitNewBid = (e) => {
         e.preventDefault();
-        console.log("budet är taget som " + newBid + ":- från " + bidder);
-        console.log(auctions);
+        //console.log("budet är taget som " + newBid + ":- från " + bidder);
+        let bid = {Summa: newBid, AuktionID: auctionID, Budgivare: bidder};
+        addBid(bid);
     }
-
     return (
         <React.Fragment>
             <form onSubmit={SubmitNewBid} >
