@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Home from './Startview/StartView';
+import Home from './StartView/StartView';
 import Create from './CreateAuction/CreateAuctionForm';
 // import Arcive from './ViewOldAuction/OldAuction';
 
