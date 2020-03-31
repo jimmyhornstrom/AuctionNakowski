@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav>
             <ul className="navbarStyle">
                 <li><NavLink to="/">Hem</NavLink></li>
-                <li><NavLink to='/CreateAuction/CreateAuctionForm'>Skapa ny auktion</NavLink></li>
+                <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
                 {/* <li><NavLink to="/ViewOldAuction/OldAuction">Avslutade auktioner</NavLink></li> */}
             </ul>            
         </nav>      
