@@ -59,7 +59,6 @@ const AuctionContextProvider = (props) => {
     }
 
     const updateAuction = async (auction) =>{
-        
         let otherAuctions = auctions.filter((a) => {
             return auction.AuktionID !== a.id;
         });
