@@ -36,7 +36,7 @@ export default function ActiveAuction({id}) {//{auction}
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
         const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
-        console.log(new Date());
+        //console.log(new Date());
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];

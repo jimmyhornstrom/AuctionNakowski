@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 
 export default function AuctionInfo({auction, price, status}) {
-    console.log(auction.StartDatum);
+    //console.log(auction.StartDatum);
     let yyyy = auction.StartDatum.substring(0, 4);
     let mm = auction.StartDatum.substring(5, 7);
     let dd = auction.StartDatum.substring(8, 10);

@@ -7,7 +7,7 @@ const AuctionList = () =>{
 
 let[auctionId, setAuctionId ] = useState();
 let[error, setError] = useState(false);
-const {auctions} = useContext(AuctionContext)
+const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
 
 var currentDate = new Date(Date.now());
 
@@ -17,6 +17,8 @@ var currentDate = new Date(Date.now());
             return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
     }
+
+    console.log(getCurrentAuctionID());
   
     
 return(

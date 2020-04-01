@@ -11,7 +11,7 @@ const AuctionContextProvider = (props) => {
     const [searchResult, setSearchResult] = useState([]);
 
     //testing testing, satt defaultvärde för att testa
-    const [currentAuctionID, setCurrentAuctionID] = useState(4700);
+    const [currentAuctionID, setCurrentAuctionID] = useState(0);
 
     const getCurrentAuctionID = () => {
         return currentAuctionID;
@@ -41,7 +41,6 @@ const AuctionContextProvider = (props) => {
     //     })
 
     // }
-    
 
     useEffect(() => {
         (async() => {
@@ -49,6 +48,7 @@ const AuctionContextProvider = (props) => {
             addAuctions(auctionsFromApi);
         })();    
     },[])
+    
 
     const postAuction = (auction) => {
 
@@ -90,10 +90,11 @@ const AuctionContextProvider = (props) => {
 
     }
 
+
     const updateCurrentAuctionID = (id) => {
-        console.log('id som sparas: '+id); // id kommer in rätt
+        //console.log('id som sparas: '+id); // id kommer in rätt
         setCurrentAuctionID(id);
-        console.log('currentAuctionID, innifrån context: '+ currentAuctionID) //id loggas ut
+        //console.log('currentAuctionID, innifrån context: '+ currentAuctionID) //id loggas ut
     };
 
 

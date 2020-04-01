@@ -18,11 +18,11 @@ const AuctionItem = (props) => {
     const {auctions, updateCurrentAuctionID, currentAuctionID, getCurrentAuctionID} = useContext(AuctionContext);
     
     //sätter id för att komma åt inne i UpdateForm
-    updateCurrentAuctionID(props.auction.AuktionID);   
+    //updateCurrentAuctionID(props.auction.AuktionID);   
     //test, visas som undefined
-    console.log('currentAuctionID innifrån auctionDetails: '+ currentAuctionID)
+    //console.log('currentAuctionID innifrån auctionDetails: '+ currentAuctionID)
     //test, den här funkar
-    console.log('currentAuctionID via metod: '+ getCurrentAuctionID())
+    //console.log('currentAuctionID via metod: '+ getCurrentAuctionID())
       
 
 
@@ -34,8 +34,7 @@ const AuctionItem = (props) => {
                 //console.log(element.AuktionID);
                 if(a.AuktionID === props.auction.AuktionID){
                     console.log('a.auktionid: '+a.AuktionID);
-                    setUrl(a.AuktionID);
-                    console.log('testurl: '+testUrl);                     
+                    updateCurrentAuctionID(a.AuktionID); //uppdaterar inte direkt...
                 }
                 
             });
@@ -44,6 +43,7 @@ const AuctionItem = (props) => {
        
     // let url = `details/${testUrl}`;    //testUrl blir 0 när man loggar i consolen, trots att a.AuktionID i handleClick visar ett värde 
     let url = `details/${props.auction.AuktionID}`;
+    let testurl = `details/${getCurrentAuctionID()}`;
     
     let displayStart = props.auction.StartDatum.substring(8, 10) + "/" + props.auction.StartDatum.substring(5, 7) + "/" + props.auction.StartDatum.substring(0, 4);
     let displaySlut = props.auction.SlutDatum.substring(8, 10) + "/" + props.auction.SlutDatum.substring(5, 7) + "/" + props.auction.SlutDatum.substring(0, 4);
@@ -55,7 +55,7 @@ const AuctionItem = (props) => {
             <p><i>från {displayStart} till {displaySlut}</i></p>
             <h5>Skapad av: {props.auction.SkapadAv}</h5>
             {/* tillagt */}
-             <button onClick={() => handleClick()}><NavLink to={url}>Uppdatera</NavLink></button> 
+             <button onClick={() => handleClick()}><NavLink to={testurl}>Uppdatera</NavLink></button> 
     </React.Fragment>)
 }
 
