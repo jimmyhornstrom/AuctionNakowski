@@ -50,16 +50,13 @@ const AuctionContextProvider = (props) => {
         
     }
 
-    const updateAuction = (auction) =>{
+    const updateAuction = async (auction) =>{
         //in progress 
         let otherAuctions = auctions.filter((a) => {
             return auction.AuktionID !== a.id;
         });
-        setAuctions(...otherAuctions, auction);
         
-        console.log(auctions);
-        
-        fetch(url,{
+        await fetch(url,{
             method: 'PUT',
             body: JSON.stringify(auction),
             headers: {
@@ -67,11 +64,7 @@ const AuctionContextProvider = (props) => {
                 'Content-Type': 'application/json'
             }
         });
-                //     fetch('http://example.com/api/xxxxxxxxxxxxxxxx' + id, {
-                //     method: 'POST',
-                //     body: auction
-                // }).then(response => response.json())
-              
+        setAuctions(...otherAuctions, auction);
     }
 
     const deleteAuction = (auction) => {
