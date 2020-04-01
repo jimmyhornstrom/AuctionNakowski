@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { AuctionContext } from '../../Context/AuctionContext';
-import './createForm.css';
+import '../form.css';
 
 export default function CreateAuctionForm(props) {
 
@@ -36,7 +36,7 @@ export default function CreateAuctionForm(props) {
     }
 
     return (
-        <div>
+        <div className="formContainer">
             <form onSubmit={handleSubmit}>
                 <label>Titel</label>
                 <br />
