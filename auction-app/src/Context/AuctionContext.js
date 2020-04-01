@@ -37,9 +37,8 @@ const AuctionContextProvider = (props) => {
 
     useEffect(() => {
         (async() => {
-            let auctionTest = await fetchAllAuctions();
-            addAuctions(auctionTest);
-            
+            let auctionsFromApi = await fetchAllAuctions();
+            addAuctions(auctionsFromApi);
         })();    
     },[])
 
