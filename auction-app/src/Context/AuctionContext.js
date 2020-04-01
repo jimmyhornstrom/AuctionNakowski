@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
-import {fetchAllAuctions} from '../Repositorys/AuctionAPIRepository';
+import {fetchAllAuctions, postAuctionToApi} from '../Repositorys/AuctionAPIRepository';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
@@ -26,36 +26,29 @@ const AuctionContextProvider = (props) => {
         setAuctions(auctions.filter(auction => auction.AuktionID !== id));
     }
 
-    const fetchAuctions = () => {
-         fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            addAuctions(data);
-        })
+    // const fetchAuctions = () => {
+    //      fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         addAuctions(data);
+    //     })
 
-    }
+    // }
 
     useEffect(() => {
         (async() => {
-            fetchAuctions();
             let auctionTest = await fetchAllAuctions();
-            //addAuctions(auctionTest);
-            console.log(auctionTest); //returnerar nu promise
+            addAuctions(auctionTest);
+            
         })();    
     },[])
 
     const postAuction = (auction) => {
 
-        fetch(url,{
-                    method: 'POST',
-                    body: JSON.stringify(auction),
-                    headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                    }
-                    }).then(()  => {
-                    addOneAuction(auction)
-                   });
+        postAuctionToApi(auction);
+        addOneAuction(auction);
+
+        
     }
 
     const updateAuction = (auction) =>{
