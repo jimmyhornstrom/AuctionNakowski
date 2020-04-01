@@ -26,7 +26,7 @@ function App() {
         {/* <StartView/> */}
         <UpdateForm id={4700} />
         {/* <CreateAuctionForm /> */}
-        <ActiveAuction />
+        <ActiveAuction id={4700} />
       </BidContextProvider>
     </AuctionContextProvider>
   );
