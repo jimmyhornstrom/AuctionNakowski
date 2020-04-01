@@ -11,7 +11,8 @@ const AuctionContextProvider = (props) => {
     const [searchResult, setSearchResult] = useState([]);
 
     const addAuctionsToSearchResult = (auctionArray) => {
-        setSearchResult([...auctionArray])
+        setSearchResult([]);
+        setSearchResult([...auctionArray]);
     }
 
     const addAuctions = (auctionArray) => {
