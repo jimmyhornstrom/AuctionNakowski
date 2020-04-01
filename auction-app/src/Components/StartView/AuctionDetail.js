@@ -35,6 +35,7 @@ const AuctionItem = (props) => {
                 if(a.AuktionID === props.auction.AuktionID){
                     console.log('a.auktionid: '+a.AuktionID);
                     updateCurrentAuctionID(a.AuktionID); //uppdaterar inte direkt...
+                    console.log(getCurrentAuctionID());
                 }
                 
             });
