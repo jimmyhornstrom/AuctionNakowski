@@ -7,7 +7,7 @@ export default function CreateAuctionForm(props) {
     // var testAuction = {Titel: "Hejhopp", Beskrivning: "hehe", StartDatum: "2019-04-28T00:00:00"
     //                     ,SlutDatum: "2019-04-30T00:00:00", Gruppkod: 2210, Utropspris: 4214,
     //                 SkapadAv: "Jimmy"};
-        
+    
 
     const { postAuction } = useContext(AuctionContext);
 
