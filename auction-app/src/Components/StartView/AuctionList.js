@@ -23,6 +23,9 @@ return(
     <div>
         {list}
     </div>
-)}
+)} 
+// else {return(<p>loading...</p>)}
+
+// }
 
 export default AuctionList;
