@@ -3,10 +3,10 @@ import {NavLink} from 'react-router-dom';
 
 //Skapar ett auction item
 const AuctionItem = (props) => {
-
-    {/*Ta bort idTest och lägg in  prop.auction.AuktionsID direkt i url*/}
-    let idTest = 4604;
-    let url = `details/${idTest}`;
+    
+    
+    let url = `/details/${props.auction.AuktionID}`;
+    console.log("länken: "+url);
 
     let displayStart = props.auction.StartDatum.substring(8, 10) + "/" + props.auction.StartDatum.substring(5, 7) + "/" + props.auction.StartDatum.substring(0, 4);
     let displaySlut = props.auction.SlutDatum.substring(8, 10) + "/" + props.auction.SlutDatum.substring(5, 7) + "/" + props.auction.SlutDatum.substring(0, 4);
