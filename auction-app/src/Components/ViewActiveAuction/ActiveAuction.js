@@ -24,7 +24,6 @@ export default function ActiveAuction({id}) {//{auction}
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions} = useContext(AuctionContext);
     useEffect(() => {setBidForAuction(id);}, []);
-    console.log(auctions);
     
     if(auctions.length){
         let wb = auctions.filter(a => a.AuktionID === id);
@@ -45,7 +44,6 @@ export default function ActiveAuction({id}) {//{auction}
             </React.Fragment>
         ) : (
             <React.Fragment>
-                
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
                 <BidList auctionID={auction.AuktionID} />
