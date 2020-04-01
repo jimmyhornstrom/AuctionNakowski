@@ -10,7 +10,7 @@ let[error, setError] = useState(false);
 const {auctions} = useContext(AuctionContext)
   
     let list =  auctions.map(a => { 
-        return (<AuctionItem auction={a} />)})
+        return (<AuctionItem auction={a} key={a.AuktionID} />)})
 return(
     <div>
         {list}
