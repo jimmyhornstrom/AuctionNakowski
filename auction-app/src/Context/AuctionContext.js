@@ -36,10 +36,12 @@ const AuctionContextProvider = (props) => {
     }
 
     useEffect(() => {
-        fetchAuctions();
-        let auctionTest = fetchAllAuctions();
-        //addAuctions(auctionTest);
-        console.log(auctionTest); //returnerar nu promise
+        (async() => {
+            fetchAuctions();
+            let auctionTest = await fetchAllAuctions();
+            //addAuctions(auctionTest);
+            console.log(auctionTest); //returnerar nu promise
+        })();    
     },[])
 
     const postAuction = (auction) => {
