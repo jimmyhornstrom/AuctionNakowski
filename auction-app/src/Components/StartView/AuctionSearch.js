@@ -16,21 +16,18 @@ const handleChange = val => {
     setSearchInput(val);
     console.log("value", val);}
     
-const {auctions} = useContext(AuctionContext);
+const {auctions, addAuctionsToSearchResult} = useContext(AuctionContext);
 
 const search = () => {
-
-  const results = auctions.filter(item =>
+  let results = auctions.filter(item =>
   item.Titel.toLowerCase().includes(searchInput));  
-  setSortedAuctions(results);
-  console.log(sortedAuctions);
-
+  //setSortedAuctions([...results]); console.log(sortedAuctions);
+  console.log(results);
   //lägger in resultat i context state (inte testat men det är iaf principen)
-  //addAuctionsToSearchResult(results);
-  
+  addAuctionsToSearchResult(results);
   }
 
-return(
+return (
 
     <div>
     <label>Sök</label>
@@ -40,8 +37,6 @@ return(
         onChange={e => handleChange(e.target.value)}
       />
         <button className ={classes.button} onClick={() => search()}>Sök</button>
-
-      
     </div>
 )
 
