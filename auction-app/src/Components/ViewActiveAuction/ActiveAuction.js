@@ -6,10 +6,10 @@ import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
 
-export default function ActiveAuction() {//{auction}
+export default function ActiveAuction({id}) {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
     //för test
-    const auction = {
+    let auction = {
         "AuktionID": 4700,
         "Titel": "Papegojja",
         "Beskrivning": "En knäpp papegojja som säger 'impo no baka' som betyder inkopetens idiot på japanska.. Grannarna har börjat klaga på att han sjunger sydafrikas nationalsång klockan 5 på morgonen.. Han gillar fisk men bara om de är lila. Ge han inte kaffe för då äter han upp dina kakor i frysen. ehnm... sa jag att han kan prata?",
@@ -18,11 +18,20 @@ export default function ActiveAuction() {//{auction}
         "Gruppkod": 2210,
         "Utropspris": 500,
         "SkapadAv": "Arrr"}
-    //let currentAuction = auctions.find(auction => auction.AuktionID === id);
+
     
     
     const {bids, setBidForAuction} = useContext(BidContext);
+    const {auctions} = useContext(AuctionContext);
 
+    console.log(auctions);
+    
+    if(auctions.length){
+        //let wb = [];
+        let wb = auctions.filter(a => a.AuktionID === 4700);
+        auction = wb[0];
+        console.log(auction);
+    }
 
           //för att testa budens context, kan tas bort senare när vi byggt ihop programmet (nedåt)
             const testbid = () => {
