@@ -26,6 +26,9 @@ export default function ActiveAuction({id}) {//{auction}
     useEffect(() => {setBidForAuction(id);}, []);
     
     if(auctions.length){
+
+        //this.props.match.params.id för routeparameter
+
         let wb = auctions.filter(a => a.AuktionID === id);
         let auction = wb[0];
 
