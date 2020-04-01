@@ -19,6 +19,12 @@ const handleChange = val => {
 const {auctions, addAuctionsToSearchResult} = useContext(AuctionContext);
 
 const search = () => {
+
+    //SÖK FUNKAR!!!
+    //det tar bara lite tid för state att få det, men den får det efter en millisekund! så console hinner skriva ut det som en tom array men det finns värde där sen.
+    //så det är det som console.log(results) skriver ut som hamnar i state (i context nu)
+
+
   let results = auctions.filter(item =>
   item.Titel.toLowerCase().includes(searchInput));  
   //setSortedAuctions([...results]); console.log(sortedAuctions);
