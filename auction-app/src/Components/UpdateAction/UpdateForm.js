@@ -1,7 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
+// import { useHistory } from "react-router-dom";
+
 
 const UpdateForm = props => {
+
+  // let history = useHistory();
   const { updateAuction, auctions } = useContext(AuctionContext);
 
   const [titel, setTitel] = useState("");
@@ -10,25 +14,11 @@ const UpdateForm = props => {
   const [endDate, setEndDate] = useState(new Date());
   const [startBid, setStartBid] = useState(0);
   const [createdBy, setCreatedBy] = useState("");
-  //const [cA, setCA] = useState({});
-
-  //useEffect(() => {
-        let currentAuction = auctions.find(a => {
-        //test
-        console.log("auktions-id:" + a.AuktionID +" titel:" +a.Titel +".... props-id:" +props.id);
-
-        return a.AuktionID === props.id;
-      });
-      // test // allt logga flera gånger i consolen??
-      console.log("visas här: " + JSON.stringify(currentAuction)); //funkar: loggar ut som en sträng
-      console.log(currentAuction); //funkar: loggar ut objektet
+   
+   let currentAuction = auctions.find(a => {
+      return a.AuktionID === props.id;
+    });
       
-      //setCA(currentAuction);
-// },[])
-  
-
-  
-
   const SetNewAuctionValues = e => {
     e.preventDefault();
 
