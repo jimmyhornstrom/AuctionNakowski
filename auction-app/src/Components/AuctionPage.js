@@ -4,7 +4,7 @@ import { AuctionContext } from '../Context/AuctionContext';
 import {NavLink} from 'react-router-dom';
 import '../form.css';
 
-
+///test, komponenten används inte, och ska förmodligen inte användas
 const AuctionPage = () => {
  
 const { auctions } = useContext(AuctionContext);
