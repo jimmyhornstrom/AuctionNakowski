@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
+import './updateform.css';
+// import '../CreateAuction/createForm.css'
 // import { useHistory } from "react-router-dom";
 
 
@@ -37,21 +39,35 @@ const UpdateForm = props => {
   };
 
   return auctions.length ? (
-      <form onSubmit={SetNewAuctionValues}><h1>test</h1>
+    <div className="formContainer">
+      <form onSubmit={SetNewAuctionValues}><h3>Uppdatera auktion</h3>
         <label>Titel</label>
+        <br/>
         <input type="text" placeholder={JSON.stringify(currentAuction.Titel)} onChange={(e) => setTitel(e.target.value)}></input>
+        <br/>
         <label>Beskrivning</label>
-        <input type="text" placeholder={currentAuction.Beskrivning} onChange={(e) => setDescription(e.target.value)}></input>
+        <br/>
+        <textarea rows="10" cols="61" placeholder={currentAuction.Beskrivning} onChange={(e) => setDescription(e.target.value)}/>
+        <br/>
         <label>StartDatum</label>
+        <br/>
         <input type="datetime-local" placeholder={currentAuction.StartDatum} onChange={(e) => setStartDate(e.target.value)}></input>
+        <br/>
         <label>SlutDatum</label>
+        <br/>
         <input type="datetime-local" placeholder={currentAuction.SlutDatum} onChange={(e) => setEndDate(e.target.value)}></input>
+        <br/>
         <label>Utropspris</label>
+        <br/>
         <input type="number" placeholder={currentAuction.Utropspris} onChange={(e) => setStartBid(e.target.value)}></input>
+        <br/>
         <label>Skapad av</label>
+        <br/>
         <input type="text" placeholder={currentAuction.SkapadAv} onChange={(e) => setCreatedBy(e.target.value)}></input>
+        <br/>
         <button type="submit">Spara</button>
     </form>
+    </div>
   ) : (<p>loading...</p>)
 };
 export default UpdateForm;
