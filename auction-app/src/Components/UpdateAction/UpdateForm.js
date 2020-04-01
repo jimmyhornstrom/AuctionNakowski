@@ -20,9 +20,6 @@ const UpdateForm = () => {
   //   });
 
 
-  //OBS id att matcha mot verkar vara korrekt när man loggar ut det, men currentAuction blir ändå undefined
-  //och därmed failar allt...
-  //Nu ser det ut att "funka"
   let currentAuction = auctions.find(a => {
     //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
         return a.AuktionID === getCurrentAuctionID(); 
