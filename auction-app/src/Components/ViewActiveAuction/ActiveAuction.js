@@ -10,11 +10,11 @@ export default function ActiveAuction() {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
     //för test
     const auction = {
-        "AuktionID": 4604,
+        "AuktionID": 4700,
         "Titel": "Papegojja",
         "Beskrivning": "En knäpp papegojja som säger 'impo no baka' som betyder inkopetens idiot på japanska.. Grannarna har börjat klaga på att han sjunger sydafrikas nationalsång klockan 5 på morgonen.. Han gillar fisk men bara om de är lila. Ge han inte kaffe för då äter han upp dina kakor i frysen. ehnm... sa jag att han kan prata?",
         "StartDatum": "2019-04-28",
-        "SlutDatum": "2019-04-30",
+        "SlutDatum": "2020-04-30",
         "Gruppkod": 2210,
         "Utropspris": 500,
         "SkapadAv": "Arrr"}

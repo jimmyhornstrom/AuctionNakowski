@@ -11,7 +11,7 @@ const AuctionContextProvider = (props) => {
     const [searchResult, setSearchResult] = useState([]);
 
     const addAuctionsToSearchResult = (auctionArray) => {
-        setSearchResult([...searchResult, ...auctionArray])
+        setSearchResult([...auctionArray])
     }
 
     const addAuctions = (auctionArray) => {
@@ -97,7 +97,7 @@ const AuctionContextProvider = (props) => {
 
 
     return(
-        <AuctionContext.Provider value={{auctions, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult}}>
+        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult}}>
             { props.children }
         </AuctionContext.Provider>
     )
