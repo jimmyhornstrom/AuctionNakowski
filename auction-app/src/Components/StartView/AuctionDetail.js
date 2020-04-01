@@ -6,40 +6,45 @@ import { AuctionContext } from '../../Context/AuctionContext';
 //Skapar ett auction item
 const AuctionItem = (props) => {
 
-    const {auctions} = useContext(AuctionContext);
+    // tanken är att sätta ett id i context för den auktion man är inne på (för att komma runt problemet att ta in en prop i Route...)
+    // id ska sättas via metoden updateCurrentAuctionID som i sin tur uppdaterar 
+    // både currentAuctionID och getCurrentAuctionID ska göra samma sak. (ingen ska användas här. Används enbart för felsökning)  
+    // getCurrentAuctionID är en funktion, men av någon anledning blir resultatet olika.
+    // urrentAuctionID visas som undefined, trots att den updaterats, och dessutom satts med defaultvärde
+    
+    // Den här komponenten tycks funka enligt test (för att sätta id), men har problem att komma åt det korrekt via UpdateForm
+    
+    
+    const {auctions, updateCurrentAuctionID, currentAuctionID, getCurrentAuctionID} = useContext(AuctionContext);
+    
+    //sätter id för att komma åt inne i UpdateForm
+    updateCurrentAuctionID(props.auction.AuktionID);   
+    //test, visas som undefined
+    console.log('currentAuctionID innifrån auctionDetails: '+ currentAuctionID)
+    //test, den här funkar
+    console.log('currentAuctionID via metod: '+ getCurrentAuctionID())
+      
+
 
     const[testUrl, setUrl] = useState(0);
-
-    //console.log(auctions);
-
+    
     const handleClick = () => {
         if(auctions.length){
             auctions.forEach(a => {
                 //console.log(element.AuktionID);
                 if(a.AuktionID === props.auction.AuktionID){
-                    console.log(a.AuktionID);
+                    console.log('a.auktionid: '+a.AuktionID);
                     setUrl(a.AuktionID);
-                    console.log(testUrl);
+                    console.log('testurl: '+testUrl);                     
                 }
                 
             });
         }
     }
-
+       
+    // let url = `details/${testUrl}`;    //testUrl blir 0 när man loggar i consolen, trots att a.AuktionID i handleClick visar ett värde 
+    let url = `details/${props.auction.AuktionID}`;
     
-
-    {/*Ta bort idTest och lägg in  prop.auction.AuktionsID direkt i url*/}
-    let idTest = 4604;
-    let url = `details/${testUrl}`;
-
-     
-    // let url = `/details/${props.auction.AuktionID}`;
-    // console.log("länken: "+url);
-
-    
-
-    //console.log(props.auction.AuktionID);
-
     let displayStart = props.auction.StartDatum.substring(8, 10) + "/" + props.auction.StartDatum.substring(5, 7) + "/" + props.auction.StartDatum.substring(0, 4);
     let displaySlut = props.auction.SlutDatum.substring(8, 10) + "/" + props.auction.SlutDatum.substring(5, 7) + "/" + props.auction.SlutDatum.substring(0, 4);
     

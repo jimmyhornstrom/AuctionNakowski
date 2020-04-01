@@ -10,6 +10,13 @@ const AuctionContextProvider = (props) => {
     const [auctions, setAuctions] = useState([]);
     const [searchResult, setSearchResult] = useState([]);
 
+    //testing testing, satt defaultvärde för att testa
+    const [currentAuctionID, setCurrentAuctionID] = useState(4700);
+
+    const getCurrentAuctionID = () => {
+        return currentAuctionID;
+    }
+
     const addAuctionsToSearchResult = (auctionArray) => {
         setSearchResult([...auctionArray]);
     }
@@ -52,7 +59,7 @@ const AuctionContextProvider = (props) => {
     }
 
     const updateAuction = async (auction) =>{
-        //in progress 
+        
         let otherAuctions = auctions.filter((a) => {
             return auction.AuktionID !== a.id;
         });
@@ -83,9 +90,15 @@ const AuctionContextProvider = (props) => {
 
     }
 
+    const updateCurrentAuctionID = (id) => {
+        console.log('id som sparas: '+id); // id kommer in rätt
+        setCurrentAuctionID(id);
+        console.log('currentAuctionID, innifrån context: '+ currentAuctionID) //id loggas ut
+    };
+
 
     return(
-        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult}}>
+        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
             { props.children }
         </AuctionContext.Provider>
     )

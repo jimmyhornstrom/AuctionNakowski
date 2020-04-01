@@ -1,10 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
 import '../../Components/form.css';
 
-const UpdateForm = props => {
+// const UpdateForm = props => {
+const UpdateForm = () => {
 
-  const { updateAuction, auctions } = useContext(AuctionContext);
+  const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID } = useContext(AuctionContext);
 
   const [titel, setTitel] = useState("");
   const [description, setDescription] = useState("");
@@ -13,10 +14,21 @@ const UpdateForm = props => {
   const [startBid, setStartBid] = useState(0);
   const [createdBy, setCreatedBy] = useState("");
    
-   let currentAuction = auctions.find(a => {
-      return a.AuktionID === props.id;
-    });
-      
+  //  om man istället använder props
+  //   let currentAuction = auctions.find(a => {
+  //     return a.AuktionID === props.id;
+  //   });
+
+
+  //OBS id att matcha mot verkar vara korrekt när man loggar ut det, men currentAuction blir ändå undefined
+  //och därmed failar allt...
+  //Nu ser det ut att "funka"
+  let currentAuction = auctions.find(a => {
+    console.log('Id via funktion i updateform: '+getCurrentAuctionID());
+        return a.AuktionID === getCurrentAuctionID(); 
+      });
+   
+
   const SetNewAuctionValues = e => {
     e.preventDefault();
 
@@ -39,7 +51,7 @@ const UpdateForm = props => {
       <form onSubmit={SetNewAuctionValues}><h3>Uppdatera auktion</h3>
         <label>Titel</label>
         <br/>
-        <input type="text" placeholder={JSON.stringify(currentAuction.Titel)} onChange={(e) => setTitel(e.target.value)}></input>
+        <input type="text" placeholder={currentAuction.Titel} onChange={(e) => setTitel(e.target.value)}></input>
         <br/>
         <label>Beskrivning</label>
         <br/>

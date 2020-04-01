@@ -25,7 +25,8 @@ function App() {
         <Navbar/>
         <Main/>
         {/* <StartView/> */}
-        <UpdateForm id={4700} />
+        <UpdateForm/>
+        {/* <UpdateForm id={4700} /> */}
         {/* <CreateAuctionForm /> */}
         <ActiveAuction id={4700} />
         <OldAuction />
