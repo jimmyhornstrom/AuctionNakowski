@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
-import './updateform.css';
+// import './updateform.css';
+import '../../Components/form.css';
 // import '../CreateAuction/createForm.css'
 // import { useHistory } from "react-router-dom";
 
