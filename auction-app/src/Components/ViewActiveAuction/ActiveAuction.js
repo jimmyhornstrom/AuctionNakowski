@@ -47,7 +47,7 @@ export default function ActiveAuction() {//{auction}
         return (slut < new Date() || start > new Date()) && auctions.length ? (
             <React.Fragment>
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>"inga bud"</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
+                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
             </React.Fragment>
         ) : (
             <React.Fragment>
