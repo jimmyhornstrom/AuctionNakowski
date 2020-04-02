@@ -50,15 +50,21 @@ const AuctionContextProvider = (props) => {
     },[])
     
     const postAuction = (auction) => {
-    
-        fetch(url,{
+        (async() => {
+            await fetch(url,{
                     method: 'POST',
                     body: JSON.stringify(auction),
                     headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                     }
-                    }).then(addOneAuction(auction));
+                    })
+            await fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setAuctions([...data]);
+            })
+        })(); 
     }
 
     // const postAuction = (auction) => {
