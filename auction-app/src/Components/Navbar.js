@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import './Navbar.css';
 import { AuctionContext } from '../Context/AuctionContext';
+import Logo from "../logo.png";
 
 const Navbar = () => {
 //ViewActiveAuction/ActiveAuction
@@ -12,7 +13,7 @@ const Navbar = () => {
         <nav>
            
             <ul className="navbarStyle">    
-           
+            <img src={Logo} alt="logo" className="welcome--logo" /> 
                 <li><NavLink to="/" onClick={() => {addAuctionsToSearchResult([])}}>Hem</NavLink></li>
                 <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
                 <li><NavLink to="/arkiv">Avslutade auktioner</NavLink></li>
