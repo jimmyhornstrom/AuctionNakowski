@@ -10,13 +10,85 @@
   }
 
   .search {
-    width: '600px';
-    display: 'inline-block';
-    padding: '10px 0px 10px 30px';
-    position: 'relative';
-    outline: 'none';
-    font-size: '20px';
-    transition: 'all 0.5s ease-out';
+   
+    width: 80%;
+    outline-style: none;
+  }
+
+
+
+  #startview{
+    width: 700px;
+    margin: 0 auto;
+    background: white;
+    
+  }
+
+  table {
+    background-color: rgb(182, 184, 196);
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed ;
+    width: 100% ;
   }
   
+  td, th {
+    
+    border: 0,5px solid #ddd;
+    padding: 8px;
+  }
+
+  td {
+    width: 25%;
+    font-size: 10px;
+  }
+
+  tr:nth-child(even){background-color: #f2f2f2;}
   
+  tr:hover {background-color: #ddd;}
+  
+  th {
+    
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(49, 49, 51);
+    color: white;
+    font-size: 12px;
+  
+  }
+
+  .detbutton {
+    background-color: #d88268;
+    border: none;
+    color: white;
+    padding: 5px 30px;
+    text-align: center;
+    font-size: 10px;
+    margin: 1px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    
+  }
+  .button:hover {opacity: 1}
+
+  .button {
+    
+    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    border-radius:1px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:10px;
+    font-weight:bold;
+    padding:11px 36px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+    margin-left: 5%;
+  
+  }

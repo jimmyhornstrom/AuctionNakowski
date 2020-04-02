@@ -6,6 +6,7 @@ import Create from './CreateAuction/CreateAuctionForm';
 import OldAuctions from './ViewOldAuction/OldAuction';
 import UpdateForm from './UpdateAction/UpdateForm';
 import ActiveAuction from './ViewActiveAuction/ActiveAuction';
+import SearchResult from './StartView/SearchResult';
 
 const Main = () => {
 
@@ -17,6 +18,7 @@ const Main = () => {
         {/* <Route path="/details:id" component={AuctionDetail}/>         */}
         <Route path="/details" component={ActiveAuction}/>  
         <Route path="/uppdatera" component={UpdateForm}/>    
+        <Route path="/sok" component={SearchResult}/> 
     </Switch>)
 }
 export default Main;

@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import GetOldAuctions from '../ViewOldAuction/OldAuction';
 import { AuctionContext } from '../../Context/AuctionContext';
+import classes from "./StartView.module.css";
 
 //Skapar ett auction item
 const AuctionItem = (props) => {
@@ -48,12 +49,16 @@ const AuctionItem = (props) => {
     
     
     return (<React.Fragment>
-         <h3>{props.auction.Titel}</h3>
-            <h4>pris: {props.auction.Utropspris} :-</h4>
-            <p><i>från {displayStart} till {displaySlut}</i></p>
-            <h5>Skapad av: {props.auction.SkapadAv}</h5>
-            {/* tillagt */}
-             <button onMouseEnter={() => handleMouseOver()}><NavLink to={url}>Visa Auktion</NavLink></button> 
+            <table> 
+            <tr>
+            <td><h3>{props.auction.Titel}</h3></td>
+            <td><h4> {props.auction.Utropspris} :-</h4></td>
+            <td><p><i>från {displayStart}</i></p></td>
+            <td><p><i>från {displaySlut}</i></p></td>
+            <td><h5>{props.auction.SkapadAv}</h5></td>
+            <td> <button className={classes.detbutton} onMouseEnter={() => handleMouseOver()}><NavLink to={url} style={{ textDecoration: 'none', color: 'black' }}>Detaljer</NavLink></button></td>
+            </tr>    
+            </table>
     </React.Fragment>)
 }
 
