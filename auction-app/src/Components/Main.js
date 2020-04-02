@@ -14,7 +14,7 @@ const Main = () => {
         <Route path="/skapa" component={Create}/>
         
         {/* <Route path="/details:id" component={AuctionDetail}/>         */}
-        <Route path="/details:id" component={UpdateForm}/>   
+        <Route path="/details" component={UpdateForm}/>   
     </Switch>)
 }
 export default Main;
