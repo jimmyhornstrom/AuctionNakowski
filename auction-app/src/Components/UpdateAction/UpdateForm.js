@@ -18,7 +18,7 @@ const UpdateForm = () => {
   //   let currentAuction = auctions.find(a => {
   //     return a.AuktionID === props.id;
   //   });
-
+if(auctions.length > 0){
 
   let currentAuction = auctions.find(a => {
     //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
@@ -73,6 +73,7 @@ const UpdateForm = () => {
         <button type="submit">Spara</button>
     </form>
     </div>
-  ) : (<p>loading...</p>)
+  ) : (<p>loading...</p>)} 
+  else {return(<p>loading...</p>)}
 };
 export default UpdateForm;
