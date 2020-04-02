@@ -6,6 +6,7 @@
     overflow: hidden;
     font-family: Helvetica;
     font-size: 20px;
+    border-bottom:0.09px solid rgb(160, 159, 159);
     
     /* background-color: #333; */
     background-color:  #050438;
