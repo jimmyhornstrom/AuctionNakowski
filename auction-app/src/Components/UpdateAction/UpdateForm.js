@@ -3,7 +3,7 @@ import { AuctionContext } from "../../Context/AuctionContext";
 import '../../Components/form.css';
 
 // const UpdateForm = props => {
-const UpdateForm = () => {
+const UpdateForm = ({id}) => {
 
   const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID } = useContext(AuctionContext);
 

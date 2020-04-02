@@ -54,7 +54,6 @@ const AuctionContextProvider = (props) => {
 
         postAuctionToApi(auction);
         addOneAuction(auction);
-
         
     }
 
@@ -74,9 +73,10 @@ const AuctionContextProvider = (props) => {
         setAuctions(...otherAuctions, auction);
     }
 
-    const deleteAuction = (auction) => {
-
-        fetch(url,{
+    const deleteAuction = (id) => {
+        let auctionnn = auctions.filter(auction => auction.AuktionID === id);
+        let auction = auctionnn[0];
+        fetch(url + "/" + id,{
             method: 'DELETE',
             body: JSON.stringify(auction),
             headers: {
@@ -84,7 +84,7 @@ const AuctionContextProvider = (props) => {
             'Content-Type': 'application/json'
             }
             }).then(() => {
-            removeAuction(auction.AuktionID)
+                removeAuction(auction.AuktionID)
            });
 
     }
@@ -96,7 +96,7 @@ const AuctionContextProvider = (props) => {
     };
 
     return(
-        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
+        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, deleteAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
             { props.children }
         </AuctionContext.Provider>
     )

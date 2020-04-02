@@ -23,7 +23,6 @@ export default function ActiveAuction() {//{auction}
     
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
-    console.log(getCurrentAuctionID());
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
     if(auctions.length > 0){
