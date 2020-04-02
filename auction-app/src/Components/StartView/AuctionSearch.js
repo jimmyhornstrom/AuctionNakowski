@@ -1,6 +1,7 @@
 import React,{useState,useEffect, useContext} from 'react';
 import classes from "./StartView.module.css";
 import { AuctionContext } from '../../Context/AuctionContext';
+import {NavLink} from 'react-router-dom';
 
 const AuctionSearch = () =>{
 
@@ -43,7 +44,8 @@ return (
         placeholder="Sök auktion..."
         onChange={e => handleChange(e.target.value)}
       />
-        <button className={classes.button} onClick={() => search()}>Sök</button>
+        {/* <button className={classes.button} onClick={() => search()}>Sök</button> */}
+        <button className={classes.button} onMouseEnter={() => search()}><NavLink to={'/sok'}>Sök</NavLink></button>        
     </div>
 )
 
