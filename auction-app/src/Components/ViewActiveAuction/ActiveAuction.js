@@ -6,6 +6,7 @@ import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
 import {NavLink} from 'react-router-dom';
+import './ActiveAuction.css';
 
 export default function ActiveAuction() {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
@@ -45,16 +46,16 @@ export default function ActiveAuction() {//{auction}
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];
         return (slut < new Date() || start > new Date()) && auctions.length ? (
-            <React.Fragment>
+            <div className="centerdiv">
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
-            </React.Fragment>
+            </div>
         ) : (
-            <React.Fragment>
+            <div className="centerdiv">
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
                 <BidList auctionID={auction.AuktionID} />
-            </React.Fragment>
+            </div>
         )  }
     else{return(<p>loading...</p>)}
 }
