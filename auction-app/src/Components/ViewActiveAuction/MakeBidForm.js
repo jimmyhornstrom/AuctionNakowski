@@ -22,7 +22,7 @@ export default function MakeBidForm({highestBet, auctionID}) {
                 <input className="forminputbid" type="number" min={highestBet +1} value={newBid} onChange={(e) => setNewBid(e.target.value)} required /><br></br>
                 <label>Budgivare</label><br></br>
                 <input className="forminputbid" type="text" value={bidder} onChange={(e) => setBidder(e.target.value)} required /><br></br>
-                <input className="forminputbid" type="submit" value="Buda!"/>
+                <input className="forminputbid" type="submit" value="Lägg bud"/>
             </form>
         </React.Fragment>
     )

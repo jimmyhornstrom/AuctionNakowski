@@ -2,16 +2,6 @@ body{
 
   background-color:   #050438;
 }
-.title {
-    position: absolute;
-    top: -10px;
-    color: #365a7a;
-    font-size: 4rem;
-    width: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
 
   .search {
    
@@ -49,10 +39,6 @@ body{
     font-size: 12px;
   }
 
-  tr:nth-child(even){background-color: #f2f2f2;}
-  
-  tr:hover {background-color: #ddd;}
-  
   th {
     
     padding-top: 12px;

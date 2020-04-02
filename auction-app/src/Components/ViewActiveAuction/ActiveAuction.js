@@ -40,7 +40,7 @@ export default function ActiveAuction() {//{auction}
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
-        const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
+        const status = slut < new Date() || start > new Date() ? ("Avslutad") : ("Aktiv");
         //console.log(new Date());
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });

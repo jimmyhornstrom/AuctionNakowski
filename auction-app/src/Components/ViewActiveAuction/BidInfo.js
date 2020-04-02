@@ -8,7 +8,7 @@ export default function BidInfo({bid}) {
         // </li>
         <tr>
             <td>{bid.Budgivare}</td>
-            <td>{"Budar " + bid.Summa + ":-"}</td>
+            <td>{bid.Summa + ":-"}</td>
         </tr>
     )
 }

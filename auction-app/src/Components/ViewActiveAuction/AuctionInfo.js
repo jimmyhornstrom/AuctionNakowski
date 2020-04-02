@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import './ActiveAuction.css';
+import classes from './ActiveAuction.css';
 
 export default function AuctionInfo({auction, price, status}) {
     //console.log(auction.StartDatum);
@@ -9,13 +9,31 @@ export default function AuctionInfo({auction, price, status}) {
     let displayStart = dd + "/" + mm + "/" + yyyy;
     let displaySlut = auction.SlutDatum.substring(8, 10) + "/" + auction.SlutDatum.substring(5, 7) + "/" + auction.SlutDatum.substring(0, 4);
     return (
-        <div className="smaller">
-            <h1>{status}</h1>
-            <p><i>från {displayStart} till {displaySlut}</i></p>
-            <h3>{auction.Titel}</h3>
-            <p>{auction.Beskrivning}</p>
-            <h4>pris: {price} :-</h4>
-            <h5>Skapad av: {auction.SkapadAv}</h5>
+        <div>
+            <table>
+            <tr>
+            <th>Titel</th>
+            <th>Pris</th>
+            <th>StartDatum</th>
+            <th>SlutDatum</th>
+            <th>Skapad av</th>
+            <th>Beskrivning</th>
+            <th>Status</th>
+            
+            </tr>
+            </table> 
+            <table>
+            <tr>
+            <td>{auction.Titel}</td>
+            <td> {price} :-</td>
+            <td> {displayStart}</td>
+            <td> {displaySlut}</td>
+            <td>{auction.Beskrivning}</td>
+            <td>{auction.SkapadAv}</td>
+            <td>{status}</td>
+            </tr>
+            </table>
+            
         </div>
     )
 }

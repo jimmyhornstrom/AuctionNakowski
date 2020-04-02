@@ -14,8 +14,8 @@ export default function BidList({auctionID}) {
         <div className="bidtable">
             <table>
                 <tr>
-                    <th>Budare</th>
-                    <th>Pris</th>
+                    <th>Budgivare</th>
+                    <th>Bud</th>
                 </tr>
                 {bids.map(bid => {
                     return( <BidInfo bid={bid} key={bid.BudID} /> );
