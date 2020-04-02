@@ -14,9 +14,10 @@ const Navbar = () => {
            
             <ul className="navbarStyle">    
             <img src={Logo} alt="logo" className="welcome--logo" /> 
-                <li><NavLink to="/" onClick={() => {addAuctionsToSearchResult([])}}>Hem</NavLink></li>
-                <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
+                
                 <li><NavLink to="/arkiv">Avslutade auktioner</NavLink></li>
+                <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
+                <li><NavLink to="/" onClick={() => {addAuctionsToSearchResult([])}}>Auktioner</NavLink></li>
             </ul>            
         </nav>      
         </React.Fragment>
