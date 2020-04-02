@@ -5,6 +5,7 @@ import MakeBidForm from './MakeBidForm';
 import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
+import {NavLink} from 'react-router-dom';
 
 export default function ActiveAuction() {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
@@ -22,7 +23,7 @@ export default function ActiveAuction() {//{auction}
     
     
     const {bids, setBidForAuction} = useContext(BidContext);
-    const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
+    const {auctions, getCurrentAuctionID, deleteAuction} = useContext(AuctionContext);
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
     if(auctions.length > 0){
@@ -34,7 +35,7 @@ export default function ActiveAuction() {//{auction}
 
         let wb = auctions.filter(a => a.AuktionID === getCurrentAuctionID());
         //let auction = wb[0];
-
+        let deleteURL = "/";
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
@@ -46,7 +47,7 @@ export default function ActiveAuction() {//{auction}
         return (slut < new Date() || start > new Date()) && auctions.length ? (
             <React.Fragment>
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : ("inga bud")}
+                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>"inga bud"</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
             </React.Fragment>
         ) : (
             <React.Fragment>
