@@ -25,9 +25,6 @@ const AuctionItem = (props) => {
     //console.log('currentAuctionID via metod: '+ getCurrentAuctionID())
       
 
-
-    const[testUrl, setUrl] = useState(0);
-
     const handleMouseOver= () => {
         if(auctions.length){
             auctions.forEach(a => {
@@ -41,24 +38,10 @@ const AuctionItem = (props) => {
             });
         }
     }
-    
-    const handleClick = () => {
-        if(auctions.length){
-            auctions.forEach(a => {
-                //console.log(element.AuktionID);
-                if(a.AuktionID === props.auction.AuktionID){
-                    console.log('a.auktionid: '+a.AuktionID);
-                    updateCurrentAuctionID(a.AuktionID); //uppdaterar inte direkt...
-                    console.log(getCurrentAuctionID());
-                }
-                
-            });
-        }
-    }
        
     // let url = `details/${testUrl}`;    //testUrl blir 0 när man loggar i consolen, trots att a.AuktionID i handleClick visar ett värde 
-    let url = `details/${props.auction.AuktionID}`;
-    let testurl = `details/${getCurrentAuctionID()}`;
+    //let url = `details/${props.auction.AuktionID}`;
+    let url= `details/${getCurrentAuctionID()}`;
     
     let displayStart = props.auction.StartDatum.substring(8, 10) + "/" + props.auction.StartDatum.substring(5, 7) + "/" + props.auction.StartDatum.substring(0, 4);
     let displaySlut = props.auction.SlutDatum.substring(8, 10) + "/" + props.auction.SlutDatum.substring(5, 7) + "/" + props.auction.SlutDatum.substring(0, 4);
@@ -70,7 +53,7 @@ const AuctionItem = (props) => {
             <p><i>från {displayStart} till {displaySlut}</i></p>
             <h5>Skapad av: {props.auction.SkapadAv}</h5>
             {/* tillagt */}
-             <button onMouseEnter={() => handleMouseOver()} onClick={() => handleClick()}><NavLink to={testurl}>Uppdatera</NavLink></button> 
+             <button onMouseEnter={() => handleMouseOver()}><NavLink to={url}>Uppdatera</NavLink></button> 
     </React.Fragment>)
 }
 
