@@ -50,7 +50,6 @@ const AuctionContextProvider = (props) => {
     },[])
     
     const postAuction = (auction) => {
-        let url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
     
         fetch(url,{
                     method: 'POST',
