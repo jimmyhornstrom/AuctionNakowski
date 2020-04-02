@@ -14,7 +14,7 @@ var currentDate = new Date(Date.now());
 console.log(auctions);
 
     if(auctions.length ){
-        let currentAuctions = auctions.filter(a => new Date(a.SlutDatum) > currentDate && new Date(a.StartDatum) > currentDate);
+        let currentAuctions = auctions.filter(a => new Date(a.SlutDatum) > currentDate && currentDate > new Date(a.StartDatum));
         var list = currentAuctions.map(a => {
             return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
