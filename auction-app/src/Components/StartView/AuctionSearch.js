@@ -36,13 +36,14 @@ const search = () => {
 return (
 
     <div>
-    <label>Sök</label>
-      <input
+    
+      <input className={classes.search}
         type="text"
         value={searchInput}
+        placeholder="Sök auktion..."
         onChange={e => handleChange(e.target.value)}
       />
-        <button className ={classes.button} onClick={() => search()}>Sök</button>
+        <button onClick={() => search()}>Sök</button>
     </div>
 )
 
