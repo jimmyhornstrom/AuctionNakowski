@@ -11,7 +11,7 @@ const Navbar = () => {
             <ul className="navbarStyle">
                 <li><NavLink to="/">Hem</NavLink></li>
                 <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
-                {/* <li><NavLink to="/ViewOldAuction/OldAuction">Avslutade auktioner</NavLink></li> */}
+                <li><NavLink to="/arkiv">Avslutade auktioner</NavLink></li>
             </ul>            
         </nav>      
         </React.Fragment>
