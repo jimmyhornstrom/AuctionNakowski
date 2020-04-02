@@ -8,7 +8,8 @@ const Navbar = () => {
     return(
         <React.Fragment>
         <nav>
-            <ul className="navbarStyle">
+           
+            <ul className="navbarStyle">    
                 <li><NavLink to="/">Hem</NavLink></li>
                 <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
                 <li><NavLink to="/arkiv">Avslutade auktioner</NavLink></li>
