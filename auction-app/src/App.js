@@ -29,7 +29,7 @@ function App() {
         {/* <UpdateForm id={4700} /> */}
         {/* <CreateAuctionForm /> */}
         {/* <ActiveAuction id={4700} /> */}
-        <OldAuction />
+        {/* <OldAuction /> */}
       </BidContextProvider>
     </AuctionContextProvider>
   );
