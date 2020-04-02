@@ -53,7 +53,7 @@ const AuctionItem = (props) => {
             <p><i>från {displayStart} till {displaySlut}</i></p>
             <h5>Skapad av: {props.auction.SkapadAv}</h5>
             {/* tillagt */}
-             <button onMouseEnter={() => handleMouseOver()}><NavLink to={url}>Uppdatera</NavLink></button> 
+             <button onMouseEnter={() => handleMouseOver()}><NavLink to={url}>Visa Auktion</NavLink></button> 
     </React.Fragment>)
 }
 

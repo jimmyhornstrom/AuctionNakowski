@@ -5,7 +5,7 @@ import {NavLink, useHistory} from 'react-router-dom';
 
 
 // const UpdateForm = props => {
-const UpdateForm = () => {
+const UpdateForm = ({id}) => {
 
   const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID } = useContext(AuctionContext);
 

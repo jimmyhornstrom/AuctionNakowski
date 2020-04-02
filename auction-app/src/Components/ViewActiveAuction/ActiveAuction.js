@@ -6,7 +6,7 @@ import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
 
-export default function ActiveAuction({id}) {//{auction}
+export default function ActiveAuction() {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
     //för test
     // let auction = {
@@ -22,15 +22,18 @@ export default function ActiveAuction({id}) {//{auction}
     
     
     const {bids, setBidForAuction} = useContext(BidContext);
-    const {auctions} = useContext(AuctionContext);
-    useEffect(() => {setBidForAuction(id);}, []);
+    const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
+    useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
-    if(auctions.length){
-
+    if(auctions.length > 0){
+        let auction = auctions.find(a => {
+        //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
+            return a.AuktionID === getCurrentAuctionID(); 
+        });
         //this.props.match.params.id för routeparameter
 
-        let wb = auctions.filter(a => a.AuktionID === id);
-        let auction = wb[0];
+        let wb = auctions.filter(a => a.AuktionID === getCurrentAuctionID());
+        //let auction = wb[0];
 
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
@@ -40,7 +43,7 @@ export default function ActiveAuction({id}) {//{auction}
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];
-        return slut < new Date() || start > new Date() ? (
+        return (slut < new Date() || start > new Date()) && auctions.length ? (
             <React.Fragment>
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 {bids.length > 0 ? (<BidInfo bid={highestBid} />) : ("inga bud")}
