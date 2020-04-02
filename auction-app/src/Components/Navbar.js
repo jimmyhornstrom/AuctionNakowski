@@ -12,8 +12,7 @@ const Navbar = () => {
         <nav>
            
             <ul className="navbarStyle">    
-                <li><NavLink to="/">Hem</NavLink></li>
-            <ul className="navbarStyle">
+           
                 <li><NavLink to="/" onClick={() => {addAuctionsToSearchResult([])}}>Hem</NavLink></li>
                 <li><NavLink to='/skapa'>Skapa ny auktion</NavLink></li>
                 <li><NavLink to="/arkiv">Avslutade auktioner</NavLink></li>
