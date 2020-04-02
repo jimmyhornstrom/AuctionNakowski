@@ -49,14 +49,31 @@ const AuctionContextProvider = (props) => {
         })();    
     },[])
     
-
     const postAuction = (auction) => {
+        (async() => {
+            await fetch(url,{
+                    method: 'POST',
+                    body: JSON.stringify(auction),
+                    headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                    }
+                    })
+            await fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setAuctions([...data]);
+            })
+        })(); 
+    }
 
-        postAuctionToApi(auction);
-        addOneAuction(auction);
+    // const postAuction = (auction) => {
+
+    //     postAuctionToApi(auction);
+    //     addOneAuction(auction);
 
         
-    }
+    // }
 
     const updateAuction = async (auction) =>{
         let otherAuctions = auctions.filter((a) => {
@@ -74,9 +91,10 @@ const AuctionContextProvider = (props) => {
         setAuctions(...otherAuctions, auction);
     }
 
-    const deleteAuction = (auction) => {
-
-        fetch(url,{
+    const deleteAuction = (id) => {
+        let auctionnn = auctions.filter(auction => auction.AuktionID === id);
+        let auction = auctionnn[0];
+        fetch(url + "/" + id,{
             method: 'DELETE',
             body: JSON.stringify(auction),
             headers: {
@@ -84,7 +102,7 @@ const AuctionContextProvider = (props) => {
             'Content-Type': 'application/json'
             }
             }).then(() => {
-            removeAuction(auction.AuktionID)
+                removeAuction(auction.AuktionID)
            });
 
     }
@@ -96,7 +114,7 @@ const AuctionContextProvider = (props) => {
     };
 
     return(
-        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
+        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, deleteAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
             { props.children }
         </AuctionContext.Provider>
     )

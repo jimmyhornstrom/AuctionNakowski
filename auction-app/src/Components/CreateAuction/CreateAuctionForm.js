@@ -10,17 +10,16 @@ export default function CreateAuctionForm(props) {
     
 
     const { postAuction } = useContext(AuctionContext);
-
+    
     const [titel, setTitel] = useState('');
     const [beskrivning, setBeskrivning] = useState('');
     const [startdatum, setStartdatum] = useState(new Date());
     const [slutdatum, setSlutdatum] = useState(new Date());
-    const [gruppkod, setGruppkod] = useState(0);
     const [utropspris, setUtropsris] = useState(0);
     const [skapadAv, setSkapadAv] = useState('');
 
     var auction = {Titel: titel, Beskrivning: beskrivning, StartDatum: startdatum
-                        ,SlutDatum: slutdatum, Gruppkod: gruppkod, Utropspris: utropspris,
+                        ,SlutDatum: slutdatum, Gruppkod: 2210, Utropspris: utropspris,
                     SkapadAv: skapadAv};
 
     const handleSubmit= (e) => {
@@ -68,11 +67,8 @@ export default function CreateAuctionForm(props) {
                 <input type="text" placeholder="Skapad av" value={skapadAv}
                 onChange={(e) => setSkapadAv(e.target.value)} required/>
                 <br />
-                <label>Gruppkod</label>
                 <br />
-                <input type="number" placeholder="Gruppkod" value={2210}
-                onChange={(e) => setGruppkod(e.target.value)} required/>
-                <br />
+                
                 <input type="submit" value="Lägg ut ny auktion"/>
 
             </form>

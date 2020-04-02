@@ -6,7 +6,7 @@ export default function AuctionInfo({auction, price, status}) {
     let mm = auction.StartDatum.substring(5, 7);
     let dd = auction.StartDatum.substring(8, 10);
     let displayStart = dd + "/" + mm + "/" + yyyy;
-    let displaySlut = auction.StartDatum.substring(8, 10) + "/" + auction.StartDatum.substring(5, 7) + "/" + auction.StartDatum.substring(0, 4);
+    let displaySlut = auction.SlutDatum.substring(8, 10) + "/" + auction.SlutDatum.substring(5, 7) + "/" + auction.SlutDatum.substring(0, 4);
     return (
         <React.Fragment>
             <h1>{status}</h1>
