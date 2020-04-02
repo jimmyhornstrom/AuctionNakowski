@@ -1,6 +1,6 @@
 body{
 
-  background-color:  #3936e6;
+  background-color:   #050438;
 }
 .title {
     position: absolute;
@@ -24,7 +24,7 @@ body{
   #startview{
     width: 700px;
     margin: 0 auto;
-    background-color: #3936e6;
+    background-color:  #050438;
     
   }
 
@@ -89,7 +89,7 @@ body{
   .button {
     
     background: rgb(10, 14, 54);
-    background-color:rgb(10, 14, 54);
+    background-color:rgb(129, 133, 184);
     border-radius:1px;
     border:0px solid #566963;
     display:inline-block;
