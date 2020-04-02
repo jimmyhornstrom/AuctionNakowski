@@ -10,6 +10,9 @@ function StartView() {
     <body>
       <br/>
       <br/>
+      <br/>
+      <br/>
+      <br/>
     <div id={classes.startview}>
       <AuctionSearch/>
       <br></br>
