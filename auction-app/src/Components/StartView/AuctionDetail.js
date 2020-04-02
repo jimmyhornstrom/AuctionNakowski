@@ -33,8 +33,8 @@ const AuctionItem = (props) => {
             auctions.forEach(a => {
                 //console.log(element.AuktionID);
                 if(a.AuktionID === props.auction.AuktionID){
-                    console.log('a.auktionid: '+a.AuktionID);
-                    updateCurrentAuctionID(a.AuktionID); //uppdaterar inte direkt...
+                    //console.log('a.auktionid: '+a.AuktionID);
+                    updateCurrentAuctionID(a.AuktionID);
                     //console.log(getCurrentAuctionID());
                 }
                 
