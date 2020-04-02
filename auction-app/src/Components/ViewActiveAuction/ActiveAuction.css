@@ -1,19 +1,24 @@
 .centerdiv {
-    background-color: rgb(200, 81, 230);
+    background-color: rgb(164, 128, 173);
     height: 100%;
     width: 60%;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
     margin-top: 20px;
+    padding: 20px;
+    color: white;
 }
 .smaller {
     max-width: 80%;
-    background-color: rgb(222, 149, 240);
+    background-color: rgb(94, 35, 110);
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    color: white;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 .makebidform {
     background-color: rgb(222, 149, 240);
@@ -21,6 +26,10 @@
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
+    
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-bottom: 20px;
 }
 .forminputbid{
     max-width: 400px;
@@ -31,11 +40,11 @@
     font-size: 24px;
     margin-left: auto;
     margin-right: auto;
-    
+    color: black;
+    text-align: left;
 }
 .bidlistcont {
     max-width: 80%;
-    background-color: rgb(222, 149, 240);
     padding: 20px;
     margin-left: auto;
     margin-right: auto;

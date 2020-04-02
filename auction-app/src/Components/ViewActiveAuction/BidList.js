@@ -10,7 +10,7 @@ export default function BidList({auctionID}) {
     const {bids} = useContext(BidContext);
     bids.sort(function(a, b){return  b.Summa-a.Summa });
     return bids.length > 0 ? (
-    <div className="smaller">
+    // <div className="smaller">
         <div className="bidtable">
             <table>
                 <tr>
@@ -22,7 +22,8 @@ export default function BidList({auctionID}) {
                 })}
             </table>
             </div>
-    </div>) : (
+    // </div>
+    ) : (
             <React.Fragment>
                 <div>Inga bud givna</div>
                 <EmptyAuctionOption auctionID={auctionID} />
