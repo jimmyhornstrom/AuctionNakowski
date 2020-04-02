@@ -44,8 +44,8 @@ return (
         placeholder="Sök auktion..."
         onChange={e => handleChange(e.target.value)}
       />
-        {/* <button className={classes.button} onClick={() => search()}>Sök</button> */}
-        <button className={classes.button} onMouseEnter={() => search()}><NavLink to={'/sok'}>Sök</NavLink></button>        
+        <button className={classes.button} onClick={() => search()}>Sök</button>
+        {/* <button className={classes.button} onMouseEnter={() => search()}><NavLink to={'/sok'}>Sök</NavLink></button>         */}
     </div>
 )
 
