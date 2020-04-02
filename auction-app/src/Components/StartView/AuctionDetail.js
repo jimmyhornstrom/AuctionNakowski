@@ -56,7 +56,7 @@ const AuctionItem = (props) => {
             <td><p><i>från {displayStart}</i></p></td>
             <td><p><i>från {displaySlut}</i></p></td>
             <td><h5>{props.auction.SkapadAv}</h5></td>
-            <td> <button className={classes.button} onMouseEnter={() => handleMouseOver()}><NavLink to={url} style={{ textDecoration: 'none', color: 'black' }}>Detaljer</NavLink></button></td>
+            <td> <button className={classes.detbutton} onMouseEnter={() => handleMouseOver()}><NavLink to={url} style={{ textDecoration: 'none', color: 'black' }}>Detaljer</NavLink></button></td>
             </tr>    
             </table>
     </React.Fragment>)

@@ -43,7 +43,7 @@ return (
         placeholder="Sök auktion..."
         onChange={e => handleChange(e.target.value)}
       />
-        <button onClick={() => search()}>Sök</button>
+        <button className={classes.button} onClick={() => search()}>Sök</button>
     </div>
 )
 

@@ -12,12 +12,7 @@
   .search {
    
     width: 80%;
-    display: 'inline-block';
-    padding: '10px 0px 10px 30px';
-    line-height: '120%';
-    outline: 'none';
-    font-size: '50px';
-    transition: 'all 0.5s ease-out';
+    outline-style: none;
   }
 
 
@@ -26,7 +21,6 @@
     width: 700px;
     margin: 0 auto;
     background: white;
-    
     
   }
 
@@ -64,7 +58,7 @@
   
   }
 
-  .button {
+  .detbutton {
     background-color: #d88268;
     border: none;
     color: white;
@@ -79,3 +73,22 @@
     
   }
   .button:hover {opacity: 1}
+
+  .button {
+    
+    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    border-radius:1px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:10px;
+    font-weight:bold;
+    padding:11px 36px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+    margin-left: 5%;
+  
+  }
