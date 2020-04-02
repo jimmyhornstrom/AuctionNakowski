@@ -89,13 +89,11 @@ const AuctionContextProvider = (props) => {
 
     }
 
-
     const updateCurrentAuctionID = (id) => {
-        //console.log('id som sparas: '+id); // id kommer in rätt
+        //console.log('id som sparas: '+id); // id kommer in rätt       
         setCurrentAuctionID(id);
         //console.log('currentAuctionID, innifrån context: '+ currentAuctionID) //id loggas ut
     };
-
 
     return(
         <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, removeAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>

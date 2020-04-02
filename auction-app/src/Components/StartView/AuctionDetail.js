@@ -27,6 +27,20 @@ const AuctionItem = (props) => {
 
 
     const[testUrl, setUrl] = useState(0);
+
+    const handleMouseOver= () => {
+        if(auctions.length){
+            auctions.forEach(a => {
+                //console.log(element.AuktionID);
+                if(a.AuktionID === props.auction.AuktionID){
+                    console.log('a.auktionid: '+a.AuktionID);
+                    updateCurrentAuctionID(a.AuktionID); //uppdaterar inte direkt...
+                    //console.log(getCurrentAuctionID());
+                }
+                
+            });
+        }
+    }
     
     const handleClick = () => {
         if(auctions.length){
@@ -56,7 +70,7 @@ const AuctionItem = (props) => {
             <p><i>från {displayStart} till {displaySlut}</i></p>
             <h5>Skapad av: {props.auction.SkapadAv}</h5>
             {/* tillagt */}
-             <button onClick={() => handleClick()}><NavLink to={testurl}>Uppdatera</NavLink></button> 
+             <button onMouseEnter={() => handleMouseOver()} onClick={() => handleClick()}><NavLink to={testurl}>Uppdatera</NavLink></button> 
     </React.Fragment>)
 }
 
