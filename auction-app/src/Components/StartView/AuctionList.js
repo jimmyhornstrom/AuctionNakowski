@@ -26,18 +26,24 @@ console.log(auctions);
                 return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
         }
-
-        
-    }
-
     console.log(getCurrentAuctionID());
   
-    
-return(
-    <div>
-        {list}
-    </div>
-)} 
+        if(searchResult.length > 0){
+        return searchResult[0].AuktionID !== 0 ? (
+            <div>
+                {list}
+            </div>
+            ) : (   
+            <div><h3>Ingen matchning..</h3></div>   )
+        }
+        else{
+            return(<React.Fragment>{list}</React.Fragment>);
+        }
+    } 
+    else{
+        return(<React.Fragment></React.Fragment>);
+    }
+}
 // else {return(<p>loading...</p>)}
 
 // }

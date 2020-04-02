@@ -31,6 +31,12 @@ const search = () => {
   //setSortedAuctions([...results]); console.log(sortedAuctions);
   console.log(results);
   //lägger in resultat i context state (inte testat men det är iaf principen)
+
+    if(results.length < 1){
+      results.push({AuktionID: 0});
+    }
+
+
   addAuctionsToSearchResult(results);
   }
 
