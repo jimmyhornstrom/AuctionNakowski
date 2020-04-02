@@ -23,9 +23,10 @@ export default function ActiveAuction() {//{auction}
     
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
+    console.log(getCurrentAuctionID());
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
-    if(auctions.length && getCurrentAuctionID() !== undefined){
+    if(auctions.length > 0){
         let auction = auctions.find(a => {
         //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
             return a.AuktionID === getCurrentAuctionID(); 
@@ -43,7 +44,7 @@ export default function ActiveAuction() {//{auction}
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];
-        return slut < new Date() || start > new Date() ? (
+        return (slut < new Date() || start > new Date()) && auctions.length ? (
             <React.Fragment>
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 {bids.length > 0 ? (<BidInfo bid={highestBid} />) : ("inga bud")}
