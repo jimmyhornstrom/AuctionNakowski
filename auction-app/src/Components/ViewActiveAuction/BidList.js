@@ -25,7 +25,7 @@ export default function BidList({auctionID}) {
     // </div>
     ) : (
             <React.Fragment>
-                <div>Inga bud givna</div>
+                <div>Inga bud</div>
                 <EmptyAuctionOption auctionID={auctionID} />
             </React.Fragment>
     )
