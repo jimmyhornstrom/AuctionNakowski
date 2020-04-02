@@ -6,6 +6,7 @@ import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
 import {NavLink} from 'react-router-dom';
+import './ActiveAuction.css';
 
 export default function ActiveAuction() {//{auction}
     //vill ha en auktion ev auktionsID som inparameter
@@ -39,22 +40,22 @@ export default function ActiveAuction() {//{auction}
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
-        const status = slut < new Date() || start > new Date() ? ("Auktionen är stängd") : ("Auktionen är öppen");
+        const status = slut < new Date() || start > new Date() ? ("Avslutad") : ("Aktiv");
         //console.log(new Date());
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];
         return (slut < new Date() || start > new Date()) && auctions.length ? (
-            <React.Fragment>
+            <div className="centerdiv">
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
-            </React.Fragment>
+                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>&nbsp;&nbsp;inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
+            </div>
         ) : (
-            <React.Fragment>
+            <div className="centerdiv">
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 <MakeBidForm highestBet={accuratePrice} auctionID={auction.AuktionID}/>
                 <BidList auctionID={auction.AuktionID} />
-            </React.Fragment>
+            </div>
         )  }
     else{return(<p>loading...</p>)}
 }

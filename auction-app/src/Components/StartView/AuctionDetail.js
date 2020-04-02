@@ -51,12 +51,13 @@ const AuctionItem = (props) => {
     return (<React.Fragment>
             <table> 
             <tr>
-            <td><h3>{props.auction.Titel}</h3></td>
-            <td><h4> {props.auction.Utropspris} :-</h4></td>
-            <td><p><i>från {displayStart}</i></p></td>
-            <td><p><i>från {displaySlut}</i></p></td>
-            <td><h5>{props.auction.SkapadAv}</h5></td>
-            <td> <button className={classes.detbutton} onMouseEnter={() => handleMouseOver()}><NavLink to={url} style={{ textDecoration: 'none', color: 'black' }}>Detaljer</NavLink></button></td>
+            <td>{props.auction.Titel}</td>
+            <td>{props.auction.Utropspris} :-</td>
+            <td>{displayStart}</td>
+            <td>{displaySlut}</td>
+            <td>{props.auction.SkapadAv}</td>
+            <td> <button className={classes.detbutton}
+             onMouseEnter={() => handleMouseOver()}><NavLink to={url} style={{ textDecoration: 'none', color: 'rgb(224, 222, 222)' }}>Detaljer</NavLink></button></td>
             </tr>    
             </table>
     </React.Fragment>)

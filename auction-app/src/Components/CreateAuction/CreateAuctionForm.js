@@ -35,7 +35,15 @@ export default function CreateAuctionForm(props) {
     }
 
     return (
+       
+        <React.Fragment> <br/>
+        <br/>
+       
+        
+       
         <div className="formContainer">
+             <br/>
+      
             <form onSubmit={handleSubmit}>
                 <label>Titel</label>
                 <br />
@@ -44,7 +52,7 @@ export default function CreateAuctionForm(props) {
                 <br />
                 <label>Beskrivning</label>
                 <br />                
-                <textarea rows="10" cols="61" placeholder="Beskrivning" value={beskrivning}
+                <textarea rows="4" cols="61" placeholder="Beskrivning" value={beskrivning}
                 onChange={(e) => setBeskrivning(e.target.value)} required/>
                 <br />
                 <label>Startdatum för auktionen</label>
@@ -69,9 +77,11 @@ export default function CreateAuctionForm(props) {
                 <br />
                 <br />
                 
-                <input type="submit" value="Lägg ut ny auktion"/>
+                <input type="submit" value="Lägg till auktion"/>
 
             </form>
         </div>
+        
+        </React.Fragment>
     )
 }

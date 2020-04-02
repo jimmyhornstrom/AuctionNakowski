@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import { AuctionContext } from '../../Context/AuctionContext';
 import AuctionItem from '../StartView/AuctionDetail';
+import classes from '../StartView/StartView.module.css'
 
 const GetOldAuctions = () => {
     
@@ -23,10 +24,28 @@ const GetOldAuctions = () => {
         // })
         
         return(    
-        <div>
+
+            <React.Fragment>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+            <div id={classes.startview}>
+            <table>
+            <tr>
+            <th>Titel</th>
+            <th>Pris</th>
+            <th>StartDatum</th>
+            <th>SlutDatum</th>
+            <th>Skapad av</th>
+            <th></th>
+            </tr>
+            </table> 
             {list}
             {/* <p>{JSON.stringify(auction)} -Avslutad</p> */}
         </div>
+        </React.Fragment>
         )
 }
 export default GetOldAuctions;

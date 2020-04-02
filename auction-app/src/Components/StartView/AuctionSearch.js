@@ -31,6 +31,12 @@ const search = () => {
   //setSortedAuctions([...results]); console.log(sortedAuctions);
   console.log(results);
   //lägger in resultat i context state (inte testat men det är iaf principen)
+
+    if(results.length < 1){
+      results.push({AuktionID: 0});
+    }
+
+
   addAuctionsToSearchResult(results);
   }
 
@@ -44,9 +50,14 @@ return (
         placeholder="Sök auktion..."
         onChange={e => handleChange(e.target.value)}
       />
+<<<<<<< HEAD
         {/* <button className={classes.button} onClick={() => search()}>Sök</button> */}
         <button className={classes.button} onMouseEnter={() => search()}><NavLink to={'/sok'}>Sök</NavLink></button>   
            
+=======
+        <button className={classes.button} onClick={() => search()}>Sök</button>
+        {/* <button className={classes.button} onMouseEnter={() => search()}><NavLink to={'/sok'}>Sök</NavLink></button>         */}
+>>>>>>> 749482025b061cda70aead99f7ce768614ea10f3
     </div>
 )
 

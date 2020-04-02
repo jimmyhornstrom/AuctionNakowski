@@ -4,24 +4,24 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: Helvetica;
+    font-size: 20px;
+    
     /* background-color: #333; */
-    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);  
+    background-color:  #050438;
   }
   
   li {
-    float: left;
-    /* height: 55px; */
+    float: right;
+    
   }
   
   li a {
     display: block;
-    color: white;
+    color: rgb(233, 233, 233);
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 16px;
     text-decoration: none;
   }
   
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-image: linear-gradient(to top,  #a6c1ee 0%,#fbc2eb 100%);
-  }
+  
