@@ -11,6 +11,8 @@ const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
 
 var currentDate = new Date(Date.now());
 
+console.log(auctions);
+
     if(auctions.length ){
         let currentAuctions = auctions.filter(a => new Date(a.SlutDatum) > currentDate);
         var list = currentAuctions.map(a => {

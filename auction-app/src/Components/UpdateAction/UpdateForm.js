@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,  } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
 import '../../Components/form.css';
+import {NavLink, useHistory} from 'react-router-dom';
+
 
 // const UpdateForm = props => {
 const UpdateForm = () => {
@@ -13,6 +15,8 @@ const UpdateForm = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [startBid, setStartBid] = useState(0);
   const [createdBy, setCreatedBy] = useState("");
+
+  let history = useHistory();
    
   //  om man istället använder props
   //   let currentAuction = auctions.find(a => {
@@ -27,7 +31,7 @@ if(auctions.length > 0){
    
 
   const SetNewAuctionValues = e => {
-    e.preventDefault();
+    //e.preventDefault();
 
     const auctionWithNewValues = {
       AuktionID: currentAuction.AuktionID,
@@ -41,7 +45,11 @@ if(auctions.length > 0){
     };
     
     updateAuction(auctionWithNewValues);
+    //history.goBack();
   };
+
+  let url= `details/${getCurrentAuctionID()}`;
+
 
   return auctions.length ? (
     <div className="formContainer">
@@ -70,7 +78,8 @@ if(auctions.length > 0){
         <br/>
         <input type="text" placeholder={currentAuction.SkapadAv} onChange={(e) => setCreatedBy(e.target.value)}></input>
         <br/>
-        <button type="submit">Spara</button>
+
+        <input type="submit" value="Spara"/>
     </form>
     </div>
   ) : (<p>loading...</p>)} 

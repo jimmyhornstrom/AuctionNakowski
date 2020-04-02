@@ -49,14 +49,26 @@ const AuctionContextProvider = (props) => {
         })();    
     },[])
     
-
     const postAuction = (auction) => {
+        let url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
+    
+        fetch(url,{
+                    method: 'POST',
+                    body: JSON.stringify(auction),
+                    headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                    }
+                    }).then(addOneAuction(auction));
+    }
 
-        postAuctionToApi(auction);
-        addOneAuction(auction);
+    // const postAuction = (auction) => {
+
+    //     postAuctionToApi(auction);
+    //     addOneAuction(auction);
 
         
-    }
+    // }
 
     const updateAuction = async (auction) =>{
         let otherAuctions = auctions.filter((a) => {

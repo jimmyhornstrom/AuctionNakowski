@@ -10,7 +10,7 @@ export default function CreateAuctionForm(props) {
     
 
     const { postAuction } = useContext(AuctionContext);
-
+    
     const [titel, setTitel] = useState('');
     const [beskrivning, setBeskrivning] = useState('');
     const [startdatum, setStartdatum] = useState(new Date());
