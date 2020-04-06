@@ -8,8 +8,8 @@ import BidInfo from './BidInfo';
 import {NavLink} from 'react-router-dom';
 import './ActiveAuction.css';
 
-export default function ActiveAuction() {//{auction}
-    //vill ha en auktion ev auktionsID som inparameter
+export default function ActiveAuction() {
+    
     //för test
     // let auction = {
     //     "AuktionID": 4700,
@@ -20,8 +20,6 @@ export default function ActiveAuction() {//{auction}
     //     "Gruppkod": 2210,
     //     "Utropspris": 500,
     //     "SkapadAv": "Arrr"}
-
-    
     
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions, getCurrentAuctionID, deleteAuction} = useContext(AuctionContext);
@@ -29,10 +27,8 @@ export default function ActiveAuction() {//{auction}
     
     if(auctions.length > 0){
         let auction = auctions.find(a => {
-        //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
             return a.AuktionID === getCurrentAuctionID(); 
         });
-        //this.props.match.params.id för routeparameter
 
         let wb = auctions.filter(a => a.AuktionID === getCurrentAuctionID());
         //let auction = wb[0];
