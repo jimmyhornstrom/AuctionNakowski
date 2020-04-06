@@ -28,8 +28,8 @@ export default function AuctionInfo({auction, price, status}) {
             <td> {price} :-</td>
             <td> {displayStart}</td>
             <td> {displaySlut}</td>
-            <td>{auction.Beskrivning}</td>
             <td>{auction.SkapadAv}</td>
+            <td>{auction.Beskrivning}</td>
             <td>{status}</td>
             </tr>
             </table>
