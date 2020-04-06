@@ -7,12 +7,7 @@ function StartView() {
 
   
   return (
-    <body>
-      {/* <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/> */}
+    
     <div id={classes.startview}>
       <AuctionSearch/>
       <br></br>
@@ -28,7 +23,7 @@ function StartView() {
             </table> 
       <AuctionList/>
     </div>
-    </body>
+    
    
   );
 }
