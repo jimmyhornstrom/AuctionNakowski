@@ -27,12 +27,7 @@ const GetOldAuctions = () => {
 
             <React.Fragment>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+               
                 
                 
             <div id={classes.startview}>
