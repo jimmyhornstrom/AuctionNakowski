@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
-import classes from './ActiveAuction.css';
+import React, {useContext} from 'react';
+import { BidContext } from '../../Context/BidContext';
 import './auctionInfo.css'
 
 export default function AuctionInfo({auction, price, status}) {
+
+    const {bids} = useContext(BidContext);
     //console.log(auction.StartDatum);
-    let beskrivningStyle= 'text-align:center';
     let yyyy = auction.StartDatum.substring(0, 4);
     let mm = auction.StartDatum.substring(5, 7);
     let dd = auction.StartDatum.substring(8, 10);
@@ -35,8 +36,8 @@ export default function AuctionInfo({auction, price, status}) {
             <h3>{auction.Titel}</h3>
             <p>{auction.Beskrivning}</p>
             <br/>
-            <h4> Nuvarande bud {price} kr</h4>
-            </div>            
+            {bids.length<1 ? <h4>Inga bud</h4>: <h4> Nuvarande bud {price} kr</h4>}
+           </div>            
             
         </div>
     )
