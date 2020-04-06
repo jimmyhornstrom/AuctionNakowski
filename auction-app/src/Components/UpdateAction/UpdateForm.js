@@ -46,7 +46,7 @@ if(auctions.length > 0){
     
     updateAuction(auctionWithNewValues);
     //history.goBack();
-    addAuctionsToSearchResult([...auctions]);
+    //addAuctionsToSearchResult([...auctions]);
     history.push('/');
   };
 

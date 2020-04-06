@@ -77,7 +77,7 @@ const AuctionContextProvider = (props) => {
 
     const updateAuction = async (auction) =>{
         let otherAuctions = auctions.filter((a) => {
-            return auction.AuktionID !== a.id;
+            return auction.AuktionID !== a.AuktionID;
         });
         
         await fetch(url,{
@@ -88,11 +88,13 @@ const AuctionContextProvider = (props) => {
                 'Content-Type': 'application/json'
             }
         });
-        //setAuctions(...otherAuctions, auction);
-        (async() => {
-            let auctionsFromApi = await fetchAllAuctions();
-            addAuctions(auctionsFromApi);
-        })();
+        setAuctions([...otherAuctions, auction]);
+        // (async() => {
+        //     let emptyarray = [];
+        //     setAuctions(emptyarray);
+        //     let auctionsFromApi = await fetchAllAuctions();
+        //     addAuctions(auctionsFromApi);
+        // })();
     }
 
     const deleteAuction = (id) => {

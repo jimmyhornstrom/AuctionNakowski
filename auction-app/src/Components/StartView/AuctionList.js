@@ -41,7 +41,7 @@ console.log(auctions);
         }
     } 
     else{
-        return(<React.Fragment>hej</React.Fragment>);
+        return(<React.Fragment></React.Fragment>);
     }
 }
 // else {return(<p>loading...</p>)}
