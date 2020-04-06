@@ -8,11 +8,11 @@ function StartView() {
   
   return (
     <body>
+      {/* <br/>
       <br/>
       <br/>
       <br/>
-      <br/>
-      <br/>
+      <br/> */}
     <div id={classes.startview}>
       <AuctionSearch/>
       <br></br>
