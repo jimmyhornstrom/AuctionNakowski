@@ -30,6 +30,10 @@ const GetOldAuctions = () => {
                 <br/>
                 <br/>
                 <br/>
+                <br/>
+                <br/>
+                <br/>
+                
                 
             <div id={classes.startview}>
             <table>
