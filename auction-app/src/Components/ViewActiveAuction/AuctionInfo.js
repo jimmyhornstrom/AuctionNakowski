@@ -1,38 +1,42 @@
 import React, {useEffect} from 'react';
 import classes from './ActiveAuction.css';
+import './auctionInfo.css'
 
 export default function AuctionInfo({auction, price, status}) {
     //console.log(auction.StartDatum);
+    let beskrivningStyle= 'text-align:center';
     let yyyy = auction.StartDatum.substring(0, 4);
     let mm = auction.StartDatum.substring(5, 7);
     let dd = auction.StartDatum.substring(8, 10);
     let displayStart = dd + "/" + mm + "/" + yyyy;
     let displaySlut = auction.SlutDatum.substring(8, 10) + "/" + auction.SlutDatum.substring(5, 7) + "/" + auction.SlutDatum.substring(0, 4);
     return (
-        <div>
+        <div> 
             <table>
             <tr>
-            <th>Titel</th>
-            <th>Pris</th>
+            <th>Utropspris</th>
             <th>StartDatum</th>
             <th>SlutDatum</th>
-            <th>Skapad av</th>
-            <th>Beskrivning</th>
+            <th>Säljare</th>
             <th>Status</th>
             
             </tr>
             </table> 
             <table>
             <tr>
-            <td>{auction.Titel}</td>
-            <td> {price} :-</td>
+            <td> {auction.Utropspris} </td>
             <td> {displayStart}</td>
             <td> {displaySlut}</td>
             <td>{auction.SkapadAv}</td>
-            <td>{auction.Beskrivning}</td>
             <td>{status}</td>
             </tr>
             </table>
+            <div className="decsription">
+            <h3>{auction.Titel}</h3>
+            <p>{auction.Beskrivning}</p>
+            <br/>
+            <h4> Nuvarande bud {price} kr</h4>
+            </div>            
             
         </div>
     )
