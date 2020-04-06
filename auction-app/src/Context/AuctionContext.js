@@ -88,7 +88,11 @@ const AuctionContextProvider = (props) => {
                 'Content-Type': 'application/json'
             }
         });
-        setAuctions(...otherAuctions, auction);
+        //setAuctions(...otherAuctions, auction);
+        (async() => {
+            let auctionsFromApi = await fetchAllAuctions();
+            addAuctions(auctionsFromApi);
+        })();
     }
 
     const deleteAuction = (id) => {

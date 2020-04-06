@@ -26,7 +26,7 @@ console.log(auctions);
                 return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
         }
-    console.log(getCurrentAuctionID());
+        console.log(getCurrentAuctionID());
   
         if(searchResult.length > 0){
         return searchResult[0].AuktionID !== 0 ? (
@@ -41,7 +41,7 @@ console.log(auctions);
         }
     } 
     else{
-        return(<React.Fragment></React.Fragment>);
+        return(<React.Fragment>hej</React.Fragment>);
     }
 }
 // else {return(<p>loading...</p>)}
