@@ -15,7 +15,8 @@ const[sortedAuctions, setSortedAuctions] = useState([]);
 
 const handleChange = val => {
     setSearchInput(val);
-    console.log("value", val);}
+    //console.log("value", val);
+  }
     
 const {auctions, addAuctionsToSearchResult} = useContext(AuctionContext);
 
@@ -29,7 +30,7 @@ const search = () => {
   let results = auctions.filter(item =>
   item.Titel.toLowerCase().includes(searchInput));  
   //setSortedAuctions([...results]); console.log(sortedAuctions);
-  console.log(results);
+  //console.log(results);
   //lägger in resultat i context state (inte testat men det är iaf principen)
 
     if(results.length < 1){

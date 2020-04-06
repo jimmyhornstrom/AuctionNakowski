@@ -26,7 +26,7 @@ console.log(auctions);
                 return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
         }
-    console.log(getCurrentAuctionID());
+        console.log(getCurrentAuctionID());
   
         if(searchResult.length > 0){
         return searchResult[0].AuktionID !== 0 ? (

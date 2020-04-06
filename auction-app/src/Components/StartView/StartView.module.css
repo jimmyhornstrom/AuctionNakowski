@@ -6,7 +6,7 @@ body{
   .search {
    
     position: left;
-    width: 70%;
+    width: 82%;
     outline-style: none;
     border: 0px;    
   }
@@ -75,16 +75,16 @@ body{
   .button {
     
     background: rgb(10, 14, 54);
-    background-color:rgb(129, 133, 184);
+    background-color:rgb(19, 23, 85);
     border-radius:1px;
     border:0px solid #566963;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
-    font-family:Arial;
+    font-family: Helvetica;
     font-size:13px;
-    font-weight:bold;
-    padding:10px 32px;
+    
+    padding:13.5px 32px;
     text-decoration:none;
     text-shadow:0px -1px 0px #2b665e;
     margin-left: 5%;

@@ -1,13 +1,13 @@
 import React, { useContext, useState,  } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
 import '../../Components/form.css';
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink, useHistory, withRouter} from 'react-router-dom';
 
 
 // const UpdateForm = props => {
-const UpdateForm = ({id}) => {
+const UpdateForm = ({id, history}) => {
 
-  const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID } = useContext(AuctionContext);
+  const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID, addAuctionsToSearchResult } = useContext(AuctionContext);
 
   const [titel, setTitel] = useState("");
   const [description, setDescription] = useState("");
@@ -16,7 +16,7 @@ const UpdateForm = ({id}) => {
   const [startBid, setStartBid] = useState(0);
   const [createdBy, setCreatedBy] = useState("");
 
-  let history = useHistory();
+  //let history = useHistory();
    
   //  om man istället använder props
   //   let currentAuction = auctions.find(a => {
@@ -31,8 +31,8 @@ if(auctions.length > 0){
    
 
   const SetNewAuctionValues = e => {
-    //e.preventDefault();
-
+    e.preventDefault();
+    
     const auctionWithNewValues = {
       AuktionID: currentAuction.AuktionID,
       Titel: titel,
@@ -46,6 +46,8 @@ if(auctions.length > 0){
     
     updateAuction(auctionWithNewValues);
     //history.goBack();
+    //addAuctionsToSearchResult([...auctions]);
+    history.push('/');
   };
 
   let url= `details/${getCurrentAuctionID()}`;
@@ -85,4 +87,4 @@ if(auctions.length > 0){
   ) : (<p>loading...</p>)} 
   else {return(<p>loading...</p>)}
 };
-export default UpdateForm;
+export default withRouter(UpdateForm);
