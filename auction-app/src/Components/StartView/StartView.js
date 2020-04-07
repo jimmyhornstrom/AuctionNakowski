@@ -5,26 +5,22 @@ import classes from "./StartView.module.css";
 
 function StartView() {
 
-  
   return (
-    
     <div id={classes.startview}>
       <AuctionSearch/>
-      <br></br>
-      <table>
+        <br></br>
+        <table>
             <tr>
-            <th>Titel</th>
-            <th>Pris</th>
-            <th>StartDatum</th>
-            <th>SlutDatum</th>
-            <th>Skapad av</th>
-            <th></th>
+              <th>Titel</th>
+              <th>Pris</th>
+              <th>StartDatum</th>
+              <th>SlutDatum</th>
+              <th>Skapad av</th>
+              <th></th>
             </tr>
-            </table> 
+        </table> 
       <AuctionList/>
     </div>
-    
-   
   );
 }
 

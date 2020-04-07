@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 import './ActiveAuction.css';
 
 export default function EmptyAuctionOption({auctionID}) {
-    const {removeAuction, deleteAuction} = useContext(AuctionContext);
+    const {deleteAuction} = useContext(AuctionContext);
     const [updateform, setUpdateFormHtml] = useState('');
 
     const updateAuction = (id) => {

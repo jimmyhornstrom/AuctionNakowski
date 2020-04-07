@@ -4,11 +4,6 @@ import '../form.css';
 
 export default function CreateAuctionForm(props) {
 
-    // var testAuction = {Titel: "Hejhopp", Beskrivning: "hehe", StartDatum: "2019-04-28T00:00:00"
-    //                     ,SlutDatum: "2019-04-30T00:00:00", Gruppkod: 2210, Utropspris: 4214,
-    //                 SkapadAv: "Jimmy"};
-    
-
     const { postAuction } = useContext(AuctionContext);
     
     const [titel, setTitel] = useState('');
@@ -31,57 +26,49 @@ export default function CreateAuctionForm(props) {
         setSlutdatum(new Date());
         setUtropsris(0);
         setSkapadAv('');
-
     }
 
     return (
-       
-        <React.Fragment> <br/>
-        <br/>
-       
-        
-       
-        <div className="formContainer">
-             <br/>
-      
-            <form onSubmit={handleSubmit}>
-                <label>Titel</label>
-                <br />
-                <input type="text" placeholder="Titel" value={titel} 
-                onChange={(e) => setTitel(e.target.value)} required/>
-                <br />
-                <label>Beskrivning</label>
-                <br />                
-                <textarea rows="4" cols="61" placeholder="Beskrivning" value={beskrivning}
-                onChange={(e) => setBeskrivning(e.target.value)} required/>
-                <br />
-                <label>Startdatum för auktionen</label>
-                <br />
-                <input type="datetime-local" placeholder="Startdatum" value={startdatum}
-                onChange={(e) => setStartdatum(e.target.value)} required/>
-                <br />
-                <label>Slutdatum för auktionen</label>
-                <br />
-                <input type="datetime-local" placeholder="Slutdatum" value={slutdatum}
-                onChange={(e) => setSlutdatum(e.target.value)} required />
-                <br />
-                <label>Utropspris</label>
-                <br />
-                <input type="number" placeholder="Utropspris" value={utropspris}
-                onChange={(e) => setUtropsris(e.target.value)} required/>
-                <br />
-                <label>Skapare av auktionen</label>
-                <br />
-                <input type="text" placeholder="Skapad av" value={skapadAv}
-                onChange={(e) => setSkapadAv(e.target.value)} required/>
-                <br />
-                <br />
-                
-                <input type="submit" value="Lägg till auktion"/>
-
-            </form>
-        </div>
-        
+        <React.Fragment> 
+            <br/>
+            <br/>
+            <div className="formContainer">
+                <br/>
+                <form onSubmit={handleSubmit}>
+                    <label>Titel</label>
+                    <br />
+                    <input type="text" placeholder="Titel" value={titel} 
+                    onChange={(e) => setTitel(e.target.value)} required/>
+                    <br />
+                    <label>Beskrivning</label>
+                    <br />                
+                    <textarea rows="4" cols="61" placeholder="Beskrivning" value={beskrivning}
+                    onChange={(e) => setBeskrivning(e.target.value)} required/>
+                    <br />
+                    <label>Startdatum för auktionen</label>
+                    <br />
+                    <input type="datetime-local" placeholder="Startdatum" value={startdatum}
+                    onChange={(e) => setStartdatum(e.target.value)} required/>
+                    <br />
+                    <label>Slutdatum för auktionen</label>
+                    <br />
+                    <input type="datetime-local" placeholder="Slutdatum" value={slutdatum}
+                    onChange={(e) => setSlutdatum(e.target.value)} required />
+                    <br />
+                    <label>Utropspris</label>
+                    <br />
+                    <input type="number" placeholder="Utropspris" value={utropspris}
+                    onChange={(e) => setUtropsris(e.target.value)} required/>
+                    <br />
+                    <label>Skapare av auktionen</label>
+                    <br />
+                    <input type="text" placeholder="Skapad av" value={skapadAv}
+                    onChange={(e) => setSkapadAv(e.target.value)} required/>
+                    <br />
+                    <br />
+                    <input type="submit" value="Lägg till auktion"/>
+                </form>
+            </div>
         </React.Fragment>
     )
 }

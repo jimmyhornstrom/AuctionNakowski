@@ -11,7 +11,6 @@ const SearchResult = () => {
             return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
     }
-   
         return(    
         <div>
             {list}

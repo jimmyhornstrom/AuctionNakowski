@@ -15,35 +15,22 @@ const GetOldAuctions = () => {
             return (<AuctionItem auction={a} key={a.AuktionID} />)
         })
     }
-   
-        // let filteredList =  auctions.filter(a => { 
-        //   return a.SlutDatum < Date.now();
-        // });
-        // let list = filteredList.map(a => {
-        //     return <AuctionItem auction={a}/>
-        // })
-        
         return(    
-
-            <React.Fragment>
-                <br/>
-               
-                
-                
+        <React.Fragment>
+            <br/> 
             <div id={classes.startview}>
-            <table>
-            <tr>
-            <th>Titel</th>
-            <th>Pris</th>
-            <th>StartDatum</th>
-            <th>SlutDatum</th>
-            <th>Skapad av</th>
-            <th></th>
-            </tr>
-            </table> 
-            {list}
-            {/* <p>{JSON.stringify(auction)} -Avslutad</p> */}
-        </div>
+                <table>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Pris</th>
+                        <th>StartDatum</th>
+                        <th>SlutDatum</th>
+                        <th>Skapad av</th>
+                        <th></th>
+                    </tr>
+                </table> 
+                {list}
+            </div>
         </React.Fragment>
         )
 }

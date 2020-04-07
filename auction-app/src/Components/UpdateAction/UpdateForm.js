@@ -1,13 +1,11 @@
 import React, { useContext, useState,  } from "react";
 import { AuctionContext } from "../../Context/AuctionContext";
 import '../../Components/form.css';
-import {NavLink, useHistory, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
-
-// const UpdateForm = props => {
 const UpdateForm = ({id, history}) => {
 
-  const { updateAuction, auctions, currentAuctionID, getCurrentAuctionID, addAuctionsToSearchResult } = useContext(AuctionContext);
+  const { updateAuction, auctions, getCurrentAuctionID} = useContext(AuctionContext);
 
   const [titel, setTitel] = useState("");
   const [description, setDescription] = useState("");
@@ -16,23 +14,12 @@ const UpdateForm = ({id, history}) => {
   const [startBid, setStartBid] = useState(0);
   const [createdBy, setCreatedBy] = useState("");
 
-  //let history = useHistory();
-   
-  //  om man istället använder props
-  //   let currentAuction = auctions.find(a => {
-  //     return a.AuktionID === props.id;
-  //   });
-if(auctions.length > 0){
-
-  let currentAuction = auctions.find(a => {
-    //console.log('Id via funktion i updateform: '+getCurrentAuctionID());
-        return a.AuktionID === getCurrentAuctionID(); 
-      });
-   
+  if(auctions.length > 0){
+    let currentAuction = auctions.find(a => {return a.AuktionID === getCurrentAuctionID(); 
+    });
 
   const SetNewAuctionValues = e => {
     e.preventDefault();
-    
     const auctionWithNewValues = {
       AuktionID: currentAuction.AuktionID,
       Titel: titel,
@@ -43,15 +30,9 @@ if(auctions.length > 0){
       Utropspris: startBid,
       SkapadAv: createdBy
     };
-    
     updateAuction(auctionWithNewValues);
-    //history.goBack();
-    //addAuctionsToSearchResult([...auctions]);
     history.push('/');
   };
-
-  let url= `details/${getCurrentAuctionID()}`;
-
 
   return auctions.length ? (
     <div className="formContainer">
@@ -80,9 +61,8 @@ if(auctions.length > 0){
         <br/>
         <input type="text" placeholder={currentAuction.SkapadAv} onChange={(e) => setCreatedBy(e.target.value)}></input>
         <br/>
-
         <input type="submit" value="Spara"/>
-    </form>
+      </form>
     </div>
   ) : (<p>loading...</p>)} 
   else {return(<p>loading...</p>)}

@@ -1,5 +1,4 @@
 
-//hämtar bud för en specifik auktion
 async function GetBidData(auctionid){
     let url = "http://nackowskis.azurewebsites.net/api/Bud/2210/" + auctionid;
     let bids = [];
@@ -12,7 +11,6 @@ async function GetBidData(auctionid){
 }
 
 const AddBidData = (bid) => {
-    //bid = {Summa: 10, AuktionID: props.aID, Budgivare: "hämtat från input"};
 
     let url = "http://nackowskis.azurewebsites.net/api/Bud/2210";
     fetch(url,{
@@ -23,10 +21,6 @@ const AddBidData = (bid) => {
         'Content-Type': 'application/json'
         }
         });
-        
-    //     .then(function (data) {
-    //         console.log('Request success: ', 'posten skapad');
-    //    })
 }
 
 export {GetBidData, AddBidData};

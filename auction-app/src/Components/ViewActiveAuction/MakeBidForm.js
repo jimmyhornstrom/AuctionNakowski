@@ -1,7 +1,6 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import { BidContext } from '../../Context/BidContext';
-import { AuctionContext } from '../../Context/AuctionContext';
-import './ActiveAuction.css';
+import './ActiveAuction.css'; 
 
 export default function MakeBidForm({highestBet, auctionID}) {
 

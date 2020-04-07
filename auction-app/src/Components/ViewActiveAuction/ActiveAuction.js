@@ -9,18 +9,7 @@ import {NavLink} from 'react-router-dom';
 import './ActiveAuction.css';
 
 export default function ActiveAuction() {
-    
-    //för test
-    // let auction = {
-    //     "AuktionID": 4700,
-    //     "Titel": "Papegojja",
-    //     "Beskrivning": "En knäpp papegojja som säger 'impo no baka' som betyder inkopetens idiot på japanska.. Grannarna har börjat klaga på att han sjunger sydafrikas nationalsång klockan 5 på morgonen.. Han gillar fisk men bara om de är lila. Ge han inte kaffe för då äter han upp dina kakor i frysen. ehnm... sa jag att han kan prata?",
-    //     "StartDatum": "2019-04-28",
-    //     "SlutDatum": "2020-04-30",
-    //     "Gruppkod": 2210,
-    //     "Utropspris": 500,
-    //     "SkapadAv": "Arrr"}
-    
+
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions, getCurrentAuctionID, deleteAuction} = useContext(AuctionContext);
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
@@ -31,20 +20,24 @@ export default function ActiveAuction() {
         });
 
         let wb = auctions.filter(a => a.AuktionID === getCurrentAuctionID());
-        //let auction = wb[0];
+
         let deleteURL = "/";
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
         const status = slut < new Date() || start > new Date() ? ("Avslutad") : ("Aktiv");
-        //console.log(new Date());
+
         let newbids = [...bids];
         newbids.sort(function(a, b){return  b.Summa-a.Summa });
         let highestBid = newbids[0];
+        
         return (slut < new Date() || start > new Date()) && auctions.length ? (
             <div className="centerdiv">
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
-                {bids.length > 0 ? (<BidInfo bid={highestBid} />) : (<div><h5>&nbsp;&nbsp;inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>)}
+                {bids.length > 0 ? (<BidInfo bid={highestBid} />
+                ) : (
+                <div><h5>&nbsp;&nbsp;inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>
+                )}
             </div>
         ) : (
             <div className="centerdiv">

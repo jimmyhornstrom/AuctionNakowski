@@ -1,16 +1,12 @@
 import React, {createContext, useState, useEffect} from 'react';
-import {fetchAllAuctions, postAuctionToApi} from '../Repositorys/AuctionAPIRepository';
+import {fetchAllAuctions} from '../Repositorys/AuctionAPIRepository';
 export const AuctionContext = createContext();
 
 const AuctionContextProvider = (props) => {
     
-
-    const url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
-
     const [auctions, setAuctions] = useState([]);
     const [searchResult, setSearchResult] = useState([]);
 
-    //testing testing, satt defaultvärde för att testa
     const [currentAuctionID, setCurrentAuctionID] = useState(0);
 
     const getCurrentAuctionID = () => {
@@ -29,18 +25,8 @@ const AuctionContextProvider = (props) => {
         setAuctions([...auctions, singleAuction]);
     }
     const removeAuction = (id) => {
-        //tar bara bort i context just nu, behöver ta bort i db också
         setAuctions(auctions.filter(auction => auction.AuktionID !== id));
     }
-
-    // const fetchAuctions = () => {
-    //      fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         addAuctions(data);
-    //     })
-
-    // }
 
     useEffect(() => {
         (async() => {
@@ -49,6 +35,8 @@ const AuctionContextProvider = (props) => {
         })();    
     },[])
     
+    const url = "http://nackowskis.azurewebsites.net/api/Auktion/2210";
+
     const postAuction = (auction) => {
         (async() => {
             await fetch(url,{
@@ -67,14 +55,6 @@ const AuctionContextProvider = (props) => {
         })(); 
     }
 
-    // const postAuction = (auction) => {
-
-    //     postAuctionToApi(auction);
-    //     addOneAuction(auction);
-
-        
-    // }
-
     const updateAuction = async (auction) =>{
         let otherAuctions = auctions.filter((a) => {
             return auction.AuktionID !== a.AuktionID;
@@ -89,12 +69,6 @@ const AuctionContextProvider = (props) => {
             }
         });
         setAuctions([...otherAuctions, auction]);
-        // (async() => {
-        //     let emptyarray = [];
-        //     setAuctions(emptyarray);
-        //     let auctionsFromApi = await fetchAllAuctions();
-        //     addAuctions(auctionsFromApi);
-        // })();
     }
 
     const deleteAuction = (id) => {
@@ -110,17 +84,14 @@ const AuctionContextProvider = (props) => {
             }).then(() => {
                 removeAuction(auction.AuktionID)
            });
-
     }
 
-    const updateCurrentAuctionID = (id) => {
-        //console.log('id som sparas: '+id); // id kommer in rätt       
+    const updateCurrentAuctionID = (id) => {    
         setCurrentAuctionID(id);
-        //console.log('currentAuctionID, innifrån context: '+ currentAuctionID) //id loggas ut
     };
 
     return(
-        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, deleteAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
+        <AuctionContext.Provider value={{auctions, searchResult, addAuctions, addOneAuction, postAuction, updateAuction, deleteAuction, addAuctionsToSearchResult, updateCurrentAuctionID, getCurrentAuctionID}}>
             { props.children }
         </AuctionContext.Provider>
     )
