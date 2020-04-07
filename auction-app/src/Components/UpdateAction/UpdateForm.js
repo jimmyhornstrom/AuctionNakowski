@@ -19,7 +19,6 @@ const UpdateForm = ({id, history}) => {
     });
 
   const SetNewAuctionValues = e => {
-    e.preventDefault();
     const auctionWithNewValues = {
       AuktionID: currentAuction.AuktionID,
       Titel: titel,
