@@ -12,14 +12,13 @@ export default function ActiveAuction() {
 
     const {bids, setBidForAuction} = useContext(BidContext);
     const {auctions, getCurrentAuctionID, deleteAuction} = useContext(AuctionContext);
+    
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
     if(auctions.length > 0){
         let auction = auctions.find(a => {
             return a.AuktionID === getCurrentAuctionID(); 
         });
-
-        let wb = auctions.filter(a => a.AuktionID === getCurrentAuctionID());
 
         let deleteURL = "/";
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
