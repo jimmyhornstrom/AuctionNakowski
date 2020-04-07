@@ -6,7 +6,6 @@ import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
 import EmptyAuctionOptions from './EmptyAuctionOption';
-import {NavLink} from 'react-router-dom';
 import './ActiveAuction.css';
 
 export default function ActiveAuction() {
@@ -21,7 +20,6 @@ export default function ActiveAuction() {
             return a.AuktionID === getCurrentAuctionID(); 
         });
 
-        let deleteURL = "/";
         const accuratePrice =  bids.length ? (Math.max.apply(Math, bids.map(function(bid) { return bid.Summa; }))) : (auction.Utropspris);
         const start = new Date(auction.StartDatum);
         const slut = new Date(auction.SlutDatum);
