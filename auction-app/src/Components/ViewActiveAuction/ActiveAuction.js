@@ -5,6 +5,7 @@ import MakeBidForm from './MakeBidForm';
 import { AuctionContext } from '../../Context/AuctionContext';
 import { BidContext } from '../../Context/BidContext';
 import BidInfo from './BidInfo';
+import EmptyAuctionOptions from './EmptyAuctionOption';
 import {NavLink} from 'react-router-dom';
 import './ActiveAuction.css';
 
@@ -35,7 +36,7 @@ export default function ActiveAuction() {
                 <AuctionInfo auction={auction} price={accuratePrice} status={status}/>
                 {bids.length > 0 ? (<BidInfo bid={highestBid} />
                 ) : (
-                <div><h5>&nbsp;&nbsp;inga bud</h5><button onClick={() => deleteAuction(auction.AuktionID)}><NavLink to={deleteURL}>Ta bort Auktionen</NavLink></button></div>
+                <div><h5>&nbsp;&nbsp;inga bud</h5><EmptyAuctionOptions auctionID={auction.AuktionID}/></div>
                 )}
             </div>
         ) : (
