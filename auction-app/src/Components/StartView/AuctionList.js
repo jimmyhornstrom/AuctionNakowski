@@ -9,15 +9,15 @@ const {auctions, searchResult} = useContext(AuctionContext);
 var currentDate = new Date(Date.now());
 
     if(auctions.length ){
-
+        let list = [];
         if(searchResult.length > 0){
-            var list = searchResult.map(a => {
+            list = searchResult.map(a => {
                 return (<AuctionItem auction={a} key={a.AuktionID} />)
             })
         }
         else{
             let currentAuctions = auctions.filter(a => new Date(a.SlutDatum) > currentDate && currentDate > new Date(a.StartDatum));
-            var list = currentAuctions.map(a => {
+            list = currentAuctions.map(a => {
                 return (<AuctionItem auction={a} key={a.AuktionID} />)
             })
         }

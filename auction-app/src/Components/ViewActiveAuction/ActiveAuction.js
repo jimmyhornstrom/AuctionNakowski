@@ -11,7 +11,7 @@ import './ActiveAuction.css';
 export default function ActiveAuction() {
 
     const {bids, setBidForAuction} = useContext(BidContext);
-    const {auctions, getCurrentAuctionID, deleteAuction} = useContext(AuctionContext);
+    const {auctions, getCurrentAuctionID} = useContext(AuctionContext);
     
     useEffect(() => {setBidForAuction(getCurrentAuctionID());}, []);
     
